@@ -77,7 +77,7 @@ namespace FinanceHero
 
             db.Close();                                         //使用Close方法關閉和資料庫的連接
 
-
+            //我加的一行gjsdsc
         }
 
         private void Shopbutton_Click(object sender, EventArgs e)
