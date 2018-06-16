@@ -82,9 +82,9 @@ namespace FinanceHero
 
         private void Shopbutton_Click(object sender, EventArgs e)
         {
-            Homepanel.Visible = false;
+            Homepanel.Visible = true;
             Shoppanel.Visible = false;
-            Heropanel.Visible = true;
+            Heropanel.Visible = false;
             Statispanel.Visible = false;
         }
 
