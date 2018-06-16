@@ -31,7 +31,7 @@ namespace FinanceHero
         {
             Homepanel.Visible = true;
             Shoppanel.Visible = false;
-            Heropanel.Visible = true;
+            Heropanel.Visible = false;
             Statispanel.Visible = false;
 
             //read data
@@ -82,9 +82,9 @@ namespace FinanceHero
 
         private void Shopbutton_Click(object sender, EventArgs e)
         {
-            Homepanel.Visible = true;
+            Homepanel.Visible = false;
             Shoppanel.Visible = false;
-            Heropanel.Visible = false;
+            Heropanel.Visible = true;
             Statispanel.Visible = false;
         }
 
@@ -104,19 +104,5 @@ namespace FinanceHero
             Statispanel.Visible = true;
         }
 
-        private void Addbutton_MouseDown(object sender, MouseEventArgs e)
-        {
-            Addbutton.ForeColor = Color.White; 
-        }
-
-        private void Addbutton_MouseEnter(object sender, EventArgs e)
-        {
-            Addbutton.ForeColor = Color.White;
-        }
-
-        private void Addbutton_MouseLeave(object sender, EventArgs e)
-        {
-            Addbutton.ForeColor = ColorTranslator.FromHtml("#ffffff");
-        }
     }
 }
