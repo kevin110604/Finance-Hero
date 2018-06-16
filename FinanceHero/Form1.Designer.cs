@@ -29,7 +29,18 @@
         private void InitializeComponent()
         {
             this.Toppanel = new System.Windows.Forms.Panel();
+            this.coinlabel = new System.Windows.Forms.Label();
+            this.Coinicon = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.Homepanel = new System.Windows.Forms.Panel();
+            this.Addbutton = new System.Windows.Forms.Button();
+            this.totalspend = new System.Windows.Forms.Label();
+            this.label = new System.Windows.Forms.Label();
+            this.datelabel = new System.Windows.Forms.Label();
+            this.buttond3 = new System.Windows.Forms.Button();
+            this.buttond2 = new System.Windows.Forms.Button();
+            this.buttond1 = new System.Windows.Forms.Button();
+            this.buttontitle = new System.Windows.Forms.Button();
             this.Homelabel = new System.Windows.Forms.Label();
             this.BottomPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.Homebutton = new System.Windows.Forms.Button();
@@ -42,24 +53,13 @@
             this.Herolabel = new System.Windows.Forms.Label();
             this.Statispanel = new System.Windows.Forms.Panel();
             this.Statislabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.Coinicon = new System.Windows.Forms.PictureBox();
-            this.coinlabel = new System.Windows.Forms.Label();
-            this.buttontitle = new System.Windows.Forms.Button();
-            this.buttond1 = new System.Windows.Forms.Button();
-            this.buttond2 = new System.Windows.Forms.Button();
-            this.buttond3 = new System.Windows.Forms.Button();
-            this.datelabel = new System.Windows.Forms.Label();
-            this.label = new System.Windows.Forms.Label();
-            this.totalspend = new System.Windows.Forms.Label();
-            this.Addbutton = new System.Windows.Forms.Button();
             this.Toppanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Coinicon)).BeginInit();
             this.Homepanel.SuspendLayout();
             this.BottomPanel.SuspendLayout();
             this.Shoppanel.SuspendLayout();
             this.Heropanel.SuspendLayout();
             this.Statispanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Coinicon)).BeginInit();
             this.SuspendLayout();
             // 
             // Toppanel
@@ -73,6 +73,36 @@
             this.Toppanel.Name = "Toppanel";
             this.Toppanel.Size = new System.Drawing.Size(684, 74);
             this.Toppanel.TabIndex = 0;
+            // 
+            // coinlabel
+            // 
+            this.coinlabel.AutoSize = true;
+            this.coinlabel.Font = new System.Drawing.Font("Greek Diner Inline TT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.coinlabel.Location = new System.Drawing.Point(420, 21);
+            this.coinlabel.Name = "coinlabel";
+            this.coinlabel.Size = new System.Drawing.Size(72, 30);
+            this.coinlabel.TabIndex = 2;
+            this.coinlabel.Text = "9527";
+            // 
+            // Coinicon
+            // 
+            this.Coinicon.Image = global::FinanceHero.Properties.Resources.coins__3_;
+            this.Coinicon.Location = new System.Drawing.Point(361, 12);
+            this.Coinicon.Name = "Coinicon";
+            this.Coinicon.Size = new System.Drawing.Size(53, 47);
+            this.Coinicon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Coinicon.TabIndex = 1;
+            this.Coinicon.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Greek Diner Inline TT", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(305, 47);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Finance Hero";
             // 
             // Homepanel
             // 
@@ -91,6 +121,88 @@
             this.Homepanel.Name = "Homepanel";
             this.Homepanel.Size = new System.Drawing.Size(684, 497);
             this.Homepanel.TabIndex = 2;
+            // 
+            // Addbutton
+            // 
+            this.Addbutton.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.Addbutton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.Addbutton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.Addbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Addbutton.Font = new System.Drawing.Font("Good Times", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Addbutton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Addbutton.Location = new System.Drawing.Point(377, 304);
+            this.Addbutton.Name = "Addbutton";
+            this.Addbutton.Size = new System.Drawing.Size(151, 49);
+            this.Addbutton.TabIndex = 8;
+            this.Addbutton.Text = " add new";
+            this.Addbutton.UseVisualStyleBackColor = true;
+            this.Addbutton.Click += new System.EventHandler(this.Addbutton_Click);
+            // 
+            // totalspend
+            // 
+            this.totalspend.AutoSize = true;
+            this.totalspend.Font = new System.Drawing.Font("Good Times", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalspend.Location = new System.Drawing.Point(374, 154);
+            this.totalspend.Name = "totalspend";
+            this.totalspend.Size = new System.Drawing.Size(215, 14);
+            this.totalspend.TabIndex = 7;
+            this.totalspend.Text = "Recent Spend Total";
+            // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.Font = new System.Drawing.Font("微軟正黑體", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label.Location = new System.Drawing.Point(371, 86);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(184, 31);
+            this.label.TabIndex = 6;
+            this.label.Text = "用途/名稱/金額";
+            // 
+            // datelabel
+            // 
+            this.datelabel.AutoSize = true;
+            this.datelabel.Font = new System.Drawing.Font("Hand Me Down S (BRK)", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.datelabel.Location = new System.Drawing.Point(374, 71);
+            this.datelabel.Name = "datelabel";
+            this.datelabel.Size = new System.Drawing.Size(91, 15);
+            this.datelabel.TabIndex = 5;
+            this.datelabel.Text = "2018/6/16 (六)";
+            // 
+            // buttond3
+            // 
+            this.buttond3.Location = new System.Drawing.Point(20, 304);
+            this.buttond3.Name = "buttond3";
+            this.buttond3.Size = new System.Drawing.Size(238, 55);
+            this.buttond3.TabIndex = 4;
+            this.buttond3.Text = "button4";
+            this.buttond3.UseVisualStyleBackColor = true;
+            // 
+            // buttond2
+            // 
+            this.buttond2.Location = new System.Drawing.Point(20, 229);
+            this.buttond2.Name = "buttond2";
+            this.buttond2.Size = new System.Drawing.Size(238, 55);
+            this.buttond2.TabIndex = 3;
+            this.buttond2.Text = "button3";
+            this.buttond2.UseVisualStyleBackColor = true;
+            // 
+            // buttond1
+            // 
+            this.buttond1.Location = new System.Drawing.Point(20, 154);
+            this.buttond1.Name = "buttond1";
+            this.buttond1.Size = new System.Drawing.Size(238, 55);
+            this.buttond1.TabIndex = 2;
+            this.buttond1.Text = "button2";
+            this.buttond1.UseVisualStyleBackColor = true;
+            // 
+            // buttontitle
+            // 
+            this.buttontitle.Location = new System.Drawing.Point(20, 76);
+            this.buttontitle.Name = "buttontitle";
+            this.buttontitle.Size = new System.Drawing.Size(238, 55);
+            this.buttontitle.TabIndex = 1;
+            this.buttontitle.Text = "button1";
+            this.buttontitle.UseVisualStyleBackColor = true;
             // 
             // Homelabel
             // 
@@ -235,117 +347,6 @@
             this.Statislabel.TabIndex = 0;
             this.Statislabel.Text = "Statistical";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Greek Diner Inline TT", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(305, 47);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Finance Hero";
-            // 
-            // Coinicon
-            // 
-            this.Coinicon.Image = global::FinanceHero.Properties.Resources.coins__3_;
-            this.Coinicon.Location = new System.Drawing.Point(361, 12);
-            this.Coinicon.Name = "Coinicon";
-            this.Coinicon.Size = new System.Drawing.Size(53, 47);
-            this.Coinicon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Coinicon.TabIndex = 1;
-            this.Coinicon.TabStop = false;
-            // 
-            // coinlabel
-            // 
-            this.coinlabel.AutoSize = true;
-            this.coinlabel.Font = new System.Drawing.Font("Greek Diner Inline TT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.coinlabel.Location = new System.Drawing.Point(420, 21);
-            this.coinlabel.Name = "coinlabel";
-            this.coinlabel.Size = new System.Drawing.Size(72, 30);
-            this.coinlabel.TabIndex = 2;
-            this.coinlabel.Text = "9527";
-            // 
-            // buttontitle
-            // 
-            this.buttontitle.Location = new System.Drawing.Point(20, 76);
-            this.buttontitle.Name = "buttontitle";
-            this.buttontitle.Size = new System.Drawing.Size(238, 55);
-            this.buttontitle.TabIndex = 1;
-            this.buttontitle.Text = "button1";
-            this.buttontitle.UseVisualStyleBackColor = true;
-            // 
-            // buttond1
-            // 
-            this.buttond1.Location = new System.Drawing.Point(20, 154);
-            this.buttond1.Name = "buttond1";
-            this.buttond1.Size = new System.Drawing.Size(238, 55);
-            this.buttond1.TabIndex = 2;
-            this.buttond1.Text = "button2";
-            this.buttond1.UseVisualStyleBackColor = true;
-            // 
-            // buttond2
-            // 
-            this.buttond2.Location = new System.Drawing.Point(20, 229);
-            this.buttond2.Name = "buttond2";
-            this.buttond2.Size = new System.Drawing.Size(238, 55);
-            this.buttond2.TabIndex = 3;
-            this.buttond2.Text = "button3";
-            this.buttond2.UseVisualStyleBackColor = true;
-            // 
-            // buttond3
-            // 
-            this.buttond3.Location = new System.Drawing.Point(20, 304);
-            this.buttond3.Name = "buttond3";
-            this.buttond3.Size = new System.Drawing.Size(238, 55);
-            this.buttond3.TabIndex = 4;
-            this.buttond3.Text = "button4";
-            this.buttond3.UseVisualStyleBackColor = true;
-            // 
-            // datelabel
-            // 
-            this.datelabel.AutoSize = true;
-            this.datelabel.Font = new System.Drawing.Font("Hand Me Down S (BRK)", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.datelabel.Location = new System.Drawing.Point(374, 71);
-            this.datelabel.Name = "datelabel";
-            this.datelabel.Size = new System.Drawing.Size(91, 15);
-            this.datelabel.TabIndex = 5;
-            this.datelabel.Text = "2018/6/16 (六)";
-            // 
-            // label
-            // 
-            this.label.AutoSize = true;
-            this.label.Font = new System.Drawing.Font("微軟正黑體", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label.Location = new System.Drawing.Point(371, 86);
-            this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(184, 31);
-            this.label.TabIndex = 6;
-            this.label.Text = "用途/名稱/金額";
-            // 
-            // totalspend
-            // 
-            this.totalspend.AutoSize = true;
-            this.totalspend.Font = new System.Drawing.Font("Good Times", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalspend.Location = new System.Drawing.Point(374, 154);
-            this.totalspend.Name = "totalspend";
-            this.totalspend.Size = new System.Drawing.Size(215, 14);
-            this.totalspend.TabIndex = 7;
-            this.totalspend.Text = "Recent Spend Total";
-            // 
-            // Addbutton
-            // 
-            this.Addbutton.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this.Addbutton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            this.Addbutton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
-            this.Addbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Addbutton.Font = new System.Drawing.Font("Good Times", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Addbutton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Addbutton.Location = new System.Drawing.Point(377, 304);
-            this.Addbutton.Name = "Addbutton";
-            this.Addbutton.Size = new System.Drawing.Size(151, 49);
-            this.Addbutton.TabIndex = 8;
-            this.Addbutton.Text = " add new";
-            this.Addbutton.UseVisualStyleBackColor = true;
-            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -362,6 +363,7 @@
             this.Text = "Home";
             this.Toppanel.ResumeLayout(false);
             this.Toppanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Coinicon)).EndInit();
             this.Homepanel.ResumeLayout(false);
             this.Homepanel.PerformLayout();
             this.BottomPanel.ResumeLayout(false);
@@ -371,7 +373,6 @@
             this.Heropanel.PerformLayout();
             this.Statispanel.ResumeLayout(false);
             this.Statispanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Coinicon)).EndInit();
             this.ResumeLayout(false);
 
         }

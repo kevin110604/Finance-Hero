@@ -83,8 +83,8 @@ namespace FinanceHero
         private void Shopbutton_Click(object sender, EventArgs e)
         {
             Homepanel.Visible = false;
-            Shoppanel.Visible = false;
-            Heropanel.Visible = true;
+            Shoppanel.Visible = true;
+            Heropanel.Visible = false;
             Statispanel.Visible = false;
         }
 
@@ -104,5 +104,10 @@ namespace FinanceHero
             Statispanel.Visible = true;
         }
 
+        private void Addbutton_Click(object sender, EventArgs e)
+        {
+            AddForm addf = new AddForm();
+            addf.Show();
+        }
     }
 }
