@@ -104,5 +104,10 @@ namespace FinanceHero
             Statispanel.Visible = true;
         }
 
+        private void Addbutton_Click(object sender, EventArgs e)
+        {
+            AddForm addf = new AddForm();
+            addf.Show();
+        }
     }
 }

@@ -136,6 +136,7 @@
             this.Addbutton.TabIndex = 8;
             this.Addbutton.Text = " add new";
             this.Addbutton.UseVisualStyleBackColor = true;
+            this.Addbutton.Click += new System.EventHandler(this.Addbutton_Click);
             // 
             // totalspend
             // 
