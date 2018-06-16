@@ -39,7 +39,7 @@ namespace FinanceHero
 
             string cn = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
                 "AttachDbFilename=|DataDirectory|Database1.mdf;" +
-                "Integrated Security=True";         //設為True 指定使用Windows 帳號認證連接資料庫
+                "Integrated Security=True";                     //設為True 指定使用Windows 帳號認證連接資料庫
 
             SqlConnection db = new SqlConnection(cn);           //建立連接物件
             db.Open();                                          //使用Open方法開啟和資料庫的連接
@@ -48,11 +48,12 @@ namespace FinanceHero
             SqlDataReader dr = cmd.ExecuteReader();
 
             string data = "";                                   //宣告字串存放資料內容
-            for (int i = 0; i < dr.FieldCount; i++)
+            string key = "", date = "";
+            for (int i = 0; i < dr.FieldCount; i++)             //讀column標題
             {
                 data += dr.GetName(i) + "  ";
             }
-            buttontitle.Text = data;
+            buttontitle.Text = "用途 / 名稱 / 金額";
 
 
             int j = 1;
@@ -61,23 +62,37 @@ namespace FinanceHero
             {
                 for (int i = 0; i < dr.FieldCount; i++)
                 {
-                    data += dr[i].ToString() + "  ";            //把資料讀出來
+                    if (i == 0)                                 //讀key
+                        key = dr[i].ToString();
+                    else if (i == 1)                            //讀日期
+                        date = dr[i].ToString();
+                    else if (i <= 3)                            //把資料讀出來
+                        data += dr[i].ToString() + " / ";       
+                    else
+                        data += dr[i].ToString();
                 }
 
                 if (j == 1)
+                {
+                    label1.Text = date;
                     buttond1.Text = data;
+                }
                 else if (j == 2)
+                {
+                    label2.Text = date;
                     buttond2.Text = data;
+                }
                 else if (j == 3)
+                {
+                    label3.Text = date;
                     buttond3.Text = data;
+                }
 
                 j++;
                 data = "";
             }
 
             db.Close();                                         //使用Close方法關閉和資料庫的連接
-
-            //我加的一行gjsdsc
         }
 
         private void Shopbutton_Click(object sender, EventArgs e)
