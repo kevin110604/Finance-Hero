@@ -21,9 +21,9 @@ namespace FinanceHero
         private void Form1_Load(object sender, EventArgs e)
         {
             // set panel visable
-            Homepanel.Visible = false;
+            Homepanel.Visible = true;
             Shoppanel.Visible = false;
-            Heropanel.Visible = true;
+            Heropanel.Visible = false;
             Statispanel.Visible = false;
 
         }
@@ -74,18 +74,18 @@ namespace FinanceHero
 
                 if (j == 1)
                 {
-                    label1.Text = date;
-                    buttond1.Text = data;
+                    datelabel1.Text = date;
+                    databuttond1.Text = data;
                 }
                 else if (j == 2)
                 {
-                    label2.Text = date;
-                    buttond2.Text = data;
+                    datelabel2.Text = date;
+                    databuttond2.Text = data;
                 }
                 else if (j == 3)
                 {
-                    label3.Text = date;
-                    buttond3.Text = data;
+                    datelabel3.Text = date;
+                    databuttond3.Text = data;
                 }
 
                 j++;
