@@ -26,6 +26,7 @@ namespace FinanceHero
             Heropanel.Visible = false;
             Statispanel.Visible = false;
 
+            load_database();
         }
         private void Homebutton_Click(object sender, EventArgs e)
         {
@@ -34,6 +35,41 @@ namespace FinanceHero
             Heropanel.Visible = false;
             Statispanel.Visible = false;
 
+            load_database();
+        }
+
+        private void Shopbutton_Click(object sender, EventArgs e)
+        {
+            Homepanel.Visible = false;
+            Shoppanel.Visible = true;
+            Heropanel.Visible = false;
+            Statispanel.Visible = false;
+        }
+
+        private void Herobutton_Click(object sender, EventArgs e)
+        {
+            Homepanel.Visible = false;
+            Shoppanel.Visible = false;
+            Heropanel.Visible = true;
+            Statispanel.Visible = false;
+        }
+
+        private void Statisbutton_Click(object sender, EventArgs e)
+        {
+            Homepanel.Visible = false;
+            Shoppanel.Visible = false;
+            Heropanel.Visible = false;
+            Statispanel.Visible = true;
+        }
+
+        private void Addbutton_Click(object sender, EventArgs e)
+        {
+            AddForm addf = new AddForm();
+            addf.Show();
+        }
+
+        private void load_database()
+        {
             //read data
             this.Text = "記帳英雄";
 
@@ -67,7 +103,7 @@ namespace FinanceHero
                     else if (i == 1)                            //讀日期
                         date = dr[i].ToString();
                     else if (i <= 3)                            //把資料讀出來
-                        data += dr[i].ToString() + " / ";       
+                        data += dr[i].ToString() + " / ";
                     else
                         data += dr[i].ToString();
                 }
@@ -93,36 +129,6 @@ namespace FinanceHero
             }
 
             db.Close();                                         //使用Close方法關閉和資料庫的連接
-        }
-
-        private void Shopbutton_Click(object sender, EventArgs e)
-        {
-            Homepanel.Visible = false;
-            Shoppanel.Visible = true;
-            Heropanel.Visible = false;
-            Statispanel.Visible = false;
-        }
-
-        private void Herobutton_Click(object sender, EventArgs e)
-        {
-            Homepanel.Visible = false;
-            Shoppanel.Visible = false;
-            Heropanel.Visible = true;
-            Statispanel.Visible = false;
-        }
-
-        private void Statisbutton_Click(object sender, EventArgs e)
-        {
-            Homepanel.Visible = false;
-            Shoppanel.Visible = false;
-            Heropanel.Visible = false;
-            Statispanel.Visible = true;
-        }
-
-        private void Addbutton_Click(object sender, EventArgs e)
-        {
-            AddForm addf = new AddForm();
-            addf.Show();
         }
     }
 }
