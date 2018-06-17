@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.Toppanel = new System.Windows.Forms.Panel();
             this.coinlabel = new System.Windows.Forms.Label();
             this.Coinicon = new System.Windows.Forms.PictureBox();
@@ -61,9 +61,9 @@
             this.Heropanel = new System.Windows.Forms.Panel();
             this.Herolabel = new System.Windows.Forms.Label();
             this.Statispanel = new System.Windows.Forms.Panel();
-            this.Statislabel = new System.Windows.Forms.Label();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Chartlabel = new System.Windows.Forms.Label();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.Statislabel = new System.Windows.Forms.Label();
             this.Toppanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Coinicon)).BeginInit();
             this.Homepanel.SuspendLayout();
@@ -222,7 +222,7 @@
             this.totalspend.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(45)))), ((int)(((byte)(60)))));
             this.totalspend.Location = new System.Drawing.Point(377, 71);
             this.totalspend.Name = "totalspend";
-            this.totalspend.Size = new System.Drawing.Size(250, 26);
+            this.totalspend.Size = new System.Drawing.Size(259, 27);
             this.totalspend.TabIndex = 7;
             this.totalspend.Text = "Spend Total";
             // 
@@ -438,33 +438,6 @@
             this.Statispanel.Size = new System.Drawing.Size(682, 495);
             this.Statispanel.TabIndex = 5;
             // 
-            // Statislabel
-            // 
-            this.Statislabel.AutoSize = true;
-            this.Statislabel.Font = new System.Drawing.Font("Good Times", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Statislabel.Location = new System.Drawing.Point(6, 9);
-            this.Statislabel.Name = "Statislabel";
-            this.Statislabel.Size = new System.Drawing.Size(324, 37);
-            this.Statislabel.TabIndex = 0;
-            this.Statislabel.Text = "Statistical";
-            // 
-            // chart1
-            // 
-            chartArea4.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chart1.Legends.Add(legend4);
-            this.chart1.Location = new System.Drawing.Point(49, 133);
-            this.chart1.Name = "chart1";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chart1.Series.Add(series4);
-            this.chart1.Size = new System.Drawing.Size(281, 264);
-            this.chart1.TabIndex = 1;
-            this.chart1.Text = "chart1";
-            // 
             // Chartlabel
             // 
             this.Chartlabel.AutoSize = true;
@@ -476,16 +449,43 @@
             this.Chartlabel.TabIndex = 14;
             this.Chartlabel.Text = "See Your Spend";
             // 
+            // chart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(49, 133);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(281, 264);
+            this.chart1.TabIndex = 1;
+            this.chart1.Text = "chart1";
+            // 
+            // Statislabel
+            // 
+            this.Statislabel.AutoSize = true;
+            this.Statislabel.Font = new System.Drawing.Font("Good Times", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Statislabel.Location = new System.Drawing.Point(6, 9);
+            this.Statislabel.Name = "Statislabel";
+            this.Statislabel.Size = new System.Drawing.Size(324, 37);
+            this.Statislabel.TabIndex = 0;
+            this.Statislabel.Text = "Statistical";
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(682, 653);
+            this.Controls.Add(this.Statispanel);
             this.Controls.Add(this.Homepanel);
             this.Controls.Add(this.Heropanel);
             this.Controls.Add(this.Shoppanel);
-            this.Controls.Add(this.Statispanel);
             this.Controls.Add(this.BottomPanel);
             this.Controls.Add(this.Toppanel);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
