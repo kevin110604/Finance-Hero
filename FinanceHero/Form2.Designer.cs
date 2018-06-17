@@ -28,45 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TextBox MoneytextBox;
             this.Toppanel = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.NTDlabel = new System.Windows.Forms.Label();
             this.Addpanel = new System.Windows.Forms.Panel();
+            this.Confirmbutton = new System.Windows.Forms.Button();
             this.TimetextBox = new System.Windows.Forms.TextBox();
             this.TypetextBox = new System.Windows.Forms.TextBox();
             this.DescripttextBox = new System.Windows.Forms.TextBox();
             this.Descriptionlabel = new System.Windows.Forms.Label();
-            this.Typelabel = new System.Windows.Forms.Label();
+            this.classlabel = new System.Windows.Forms.Label();
             this.Timelabel = new System.Windows.Forms.Label();
-            this.Confirmbutton = new System.Windows.Forms.Button();
-            MoneytextBox = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Toppanel.SuspendLayout();
             this.Addpanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // MoneytextBox
-            // 
-            MoneytextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(150)))), ((int)(((byte)(227)))));
-            MoneytextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            MoneytextBox.Font = new System.Drawing.Font("Greek Diner Inline TT", 25.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            MoneytextBox.ForeColor = System.Drawing.Color.White;
-            MoneytextBox.Location = new System.Drawing.Point(114, 5);
-            MoneytextBox.Name = "MoneytextBox";
-            MoneytextBox.Size = new System.Drawing.Size(334, 52);
-            MoneytextBox.TabIndex = 6;
-            MoneytextBox.Text = "0";
-            MoneytextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // Toppanel
             // 
             this.Toppanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(150)))), ((int)(((byte)(227)))));
+            this.Toppanel.Controls.Add(this.textBox1);
             this.Toppanel.Controls.Add(this.NTDlabel);
-            this.Toppanel.Controls.Add(MoneytextBox);
             this.Toppanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.Toppanel.Location = new System.Drawing.Point(0, 0);
             this.Toppanel.Name = "Toppanel";
-            this.Toppanel.Size = new System.Drawing.Size(470, 58);
+            this.Toppanel.Size = new System.Drawing.Size(1040, 58);
             this.Toppanel.TabIndex = 0;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.Gainsboro;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Font = new System.Drawing.Font("Good Times", 15F);
+            this.textBox1.Location = new System.Drawing.Point(131, 11);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(315, 36);
+            this.textBox1.TabIndex = 8;
+            this.textBox1.Text = "500";
             // 
             // NTDlabel
             // 
@@ -82,18 +84,32 @@
             // Addpanel
             // 
             this.Addpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(45)))), ((int)(((byte)(60)))));
+            this.Addpanel.Controls.Add(this.dataGridView1);
+            this.Addpanel.Controls.Add(this.dateTimePicker1);
+            this.Addpanel.Controls.Add(this.textBox2);
             this.Addpanel.Controls.Add(this.Confirmbutton);
             this.Addpanel.Controls.Add(this.TimetextBox);
             this.Addpanel.Controls.Add(this.TypetextBox);
             this.Addpanel.Controls.Add(this.DescripttextBox);
             this.Addpanel.Controls.Add(this.Descriptionlabel);
-            this.Addpanel.Controls.Add(this.Typelabel);
+            this.Addpanel.Controls.Add(this.classlabel);
             this.Addpanel.Controls.Add(this.Timelabel);
             this.Addpanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Addpanel.Location = new System.Drawing.Point(0, 58);
             this.Addpanel.Name = "Addpanel";
-            this.Addpanel.Size = new System.Drawing.Size(470, 365);
+            this.Addpanel.Size = new System.Drawing.Size(1040, 585);
             this.Addpanel.TabIndex = 1;
+            // 
+            // Confirmbutton
+            // 
+            this.Confirmbutton.Font = new System.Drawing.Font("Good Times", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Confirmbutton.Location = new System.Drawing.Point(138, 299);
+            this.Confirmbutton.Name = "Confirmbutton";
+            this.Confirmbutton.Size = new System.Drawing.Size(191, 33);
+            this.Confirmbutton.TabIndex = 6;
+            this.Confirmbutton.Text = "Confirm";
+            this.Confirmbutton.UseVisualStyleBackColor = true;
+            this.Confirmbutton.Click += new System.EventHandler(this.Confirmbutton_Click);
             // 
             // TimetextBox
             // 
@@ -105,6 +121,7 @@
             this.TimetextBox.Name = "TimetextBox";
             this.TimetextBox.Size = new System.Drawing.Size(422, 36);
             this.TimetextBox.TabIndex = 5;
+            this.TimetextBox.Text = "20180618";
             // 
             // TypetextBox
             // 
@@ -116,6 +133,7 @@
             this.TypetextBox.Name = "TypetextBox";
             this.TypetextBox.Size = new System.Drawing.Size(422, 36);
             this.TypetextBox.TabIndex = 4;
+            this.TypetextBox.Text = "drink";
             // 
             // DescripttextBox
             // 
@@ -127,6 +145,7 @@
             this.DescripttextBox.Name = "DescripttextBox";
             this.DescripttextBox.Size = new System.Drawing.Size(422, 36);
             this.DescripttextBox.TabIndex = 3;
+            this.DescripttextBox.Text = "tea";
             // 
             // Descriptionlabel
             // 
@@ -139,16 +158,16 @@
             this.Descriptionlabel.TabIndex = 2;
             this.Descriptionlabel.Text = "Description";
             // 
-            // Typelabel
+            // classlabel
             // 
-            this.Typelabel.AutoSize = true;
-            this.Typelabel.Font = new System.Drawing.Font("Good Times", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Typelabel.ForeColor = System.Drawing.Color.White;
-            this.Typelabel.Location = new System.Drawing.Point(22, 110);
-            this.Typelabel.Name = "Typelabel";
-            this.Typelabel.Size = new System.Drawing.Size(88, 23);
-            this.Typelabel.TabIndex = 1;
-            this.Typelabel.Text = "Type";
+            this.classlabel.AutoSize = true;
+            this.classlabel.Font = new System.Drawing.Font("Good Times", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.classlabel.ForeColor = System.Drawing.Color.White;
+            this.classlabel.Location = new System.Drawing.Point(22, 110);
+            this.classlabel.Name = "classlabel";
+            this.classlabel.Size = new System.Drawing.Size(113, 23);
+            this.classlabel.TabIndex = 1;
+            this.classlabel.Text = "class";
             // 
             // Timelabel
             // 
@@ -161,22 +180,40 @@
             this.Timelabel.TabIndex = 0;
             this.Timelabel.Text = "Time";
             // 
-            // Confirmbutton
+            // textBox2
             // 
-            this.Confirmbutton.Font = new System.Drawing.Font("Good Times", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Confirmbutton.Location = new System.Drawing.Point(138, 299);
-            this.Confirmbutton.Name = "Confirmbutton";
-            this.Confirmbutton.Size = new System.Drawing.Size(191, 33);
-            this.Confirmbutton.TabIndex = 6;
-            this.Confirmbutton.Text = "Confirm";
-            this.Confirmbutton.UseVisualStyleBackColor = true;
+            this.textBox2.BackColor = System.Drawing.Color.Gainsboro;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox2.Font = new System.Drawing.Font("Good Times", 15F);
+            this.textBox2.Location = new System.Drawing.Point(12, 301);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(93, 36);
+            this.textBox2.TabIndex = 9;
+            this.textBox2.Text = "4";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(138, 18);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(143, 25);
+            this.dateTimePicker1.TabIndex = 10;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(348, 283);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 27;
+            this.dataGridView1.Size = new System.Drawing.Size(633, 290);
+            this.dataGridView1.TabIndex = 11;
             // 
             // AddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(470, 423);
+            this.ClientSize = new System.Drawing.Size(1040, 643);
             this.Controls.Add(this.Addpanel);
             this.Controls.Add(this.Toppanel);
             this.Name = "AddForm";
@@ -185,6 +222,7 @@
             this.Toppanel.PerformLayout();
             this.Addpanel.ResumeLayout(false);
             this.Addpanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -193,7 +231,7 @@
 
         private System.Windows.Forms.Panel Toppanel;
         private System.Windows.Forms.Panel Addpanel;
-        private System.Windows.Forms.Label Typelabel;
+        private System.Windows.Forms.Label classlabel;
         private System.Windows.Forms.Label Timelabel;
         private System.Windows.Forms.TextBox TimetextBox;
         private System.Windows.Forms.TextBox TypetextBox;
@@ -201,5 +239,9 @@
         private System.Windows.Forms.Label Descriptionlabel;
         private System.Windows.Forms.Label NTDlabel;
         private System.Windows.Forms.Button Confirmbutton;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
