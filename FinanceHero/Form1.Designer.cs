@@ -398,11 +398,11 @@
             // Shoplabel
             // 
             this.Shoplabel.AutoSize = true;
-            this.Shoplabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Shoplabel.Font = new System.Drawing.Font("Good Times Rg", 23.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Shoplabel.Location = new System.Drawing.Point(9, 7);
             this.Shoplabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Shoplabel.Name = "Shoplabel";
-            this.Shoplabel.Size = new System.Drawing.Size(86, 36);
+            this.Shoplabel.Size = new System.Drawing.Size(127, 37);
             this.Shoplabel.TabIndex = 0;
             this.Shoplabel.Text = "Shop";
             // 
@@ -423,12 +423,12 @@
             // 
             this.Herolabel.AutoSize = true;
             this.Herolabel.BackColor = System.Drawing.Color.Transparent;
-            this.Herolabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Herolabel.Font = new System.Drawing.Font("Good Times Rg", 23.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Herolabel.ForeColor = System.Drawing.Color.White;
             this.Herolabel.Location = new System.Drawing.Point(9, 7);
             this.Herolabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Herolabel.Name = "Herolabel";
-            this.Herolabel.Size = new System.Drawing.Size(79, 36);
+            this.Herolabel.Size = new System.Drawing.Size(125, 37);
             this.Herolabel.TabIndex = 0;
             this.Herolabel.Text = "Hero";
             // 
@@ -448,12 +448,12 @@
             // Chartlabel
             // 
             this.Chartlabel.AutoSize = true;
-            this.Chartlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Chartlabel.Font = new System.Drawing.Font("Good Times Rg", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Chartlabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(45)))), ((int)(((byte)(60)))));
             this.Chartlabel.Location = new System.Drawing.Point(11, 81);
             this.Chartlabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Chartlabel.Name = "Chartlabel";
-            this.Chartlabel.Size = new System.Drawing.Size(191, 29);
+            this.Chartlabel.Size = new System.Drawing.Size(272, 29);
             this.Chartlabel.TabIndex = 14;
             this.Chartlabel.Text = "See Your Spend";
             // 
@@ -478,11 +478,11 @@
             // Statislabel
             // 
             this.Statislabel.AutoSize = true;
-            this.Statislabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Statislabel.Font = new System.Drawing.Font("Good Times Rg", 23.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Statislabel.Location = new System.Drawing.Point(4, 7);
             this.Statislabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Statislabel.Name = "Statislabel";
-            this.Statislabel.Size = new System.Drawing.Size(142, 36);
+            this.Statislabel.Size = new System.Drawing.Size(255, 37);
             this.Statislabel.TabIndex = 0;
             this.Statislabel.Text = "Statistical";
             // 
@@ -493,8 +493,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(512, 522);
             this.Controls.Add(this.Homepanel);
-            this.Controls.Add(this.Heropanel);
             this.Controls.Add(this.Shoppanel);
+            this.Controls.Add(this.Heropanel);
             this.Controls.Add(this.Statispanel);
             this.Controls.Add(this.BottomPanel);
             this.Controls.Add(this.Toppanel);

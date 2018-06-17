@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using System.Data.SqlClient; //引用System.Data.SqlClient命名空間
-
+//for test
 namespace FinanceHero
 {
     public partial class Home : Form
