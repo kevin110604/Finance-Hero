@@ -20,13 +20,13 @@ namespace FinanceHero
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            load_database();
+
             // set panel visable
             Homepanel.Visible = true;
             Shoppanel.Visible = false;
             Heropanel.Visible = false;
             Statispanel.Visible = false;
-
-            load_database();
         }
         private void Homebutton_Click(object sender, EventArgs e)
         {
@@ -54,12 +54,19 @@ namespace FinanceHero
             Statispanel.Visible = false;
         }
 
+        int only_once = 0;
         private void Statisbutton_Click(object sender, EventArgs e)
         {
             Homepanel.Visible = false;
             Shoppanel.Visible = false;
             Heropanel.Visible = false;
             Statispanel.Visible = true;
+
+            if (only_once < 1)
+            {
+                load_chart();
+                only_once++;
+            }
         }
 
         private void Addbutton_Click(object sender, EventArgs e)
@@ -129,6 +136,48 @@ namespace FinanceHero
             }
 
             db.Close();                                         //使用Close方法關閉和資料庫的連接
+        }
+
+        private void load_chart()
+        {
+            string cn = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
+                "AttachDbFilename=|DataDirectory|Database1.mdf;" +
+                "Integrated Security=True";                     //設為True 指定使用Windows 帳號認證連接資料庫
+            SqlConnection db = new SqlConnection(cn);           //建立連接物件    
+            SqlCommand cmd = new SqlCommand
+                ("SELECT class, SUM(money) FROM 記帳 GROUP BY class", db);
+
+            try
+            {
+                db.Open();                                      //使用Open方法開啟和資料庫的連接
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                string column_name = "";                        //用不到的column標題
+                for (int i = 0; i < dr.FieldCount; i++)         //讀column標題
+                {
+                    column_name += dr.GetName(i) + "  ";
+                }
+
+                string class_name = "";
+                int money_value = 0;
+                while (dr.Read())
+                {
+                    for (int i = 0; i < dr.FieldCount; i++)
+                    {
+                        if (i % 2 == 0)
+                            class_name = dr[i].ToString();
+                        else
+                            money_value = int.Parse(dr[i].ToString());
+                    }
+                    chart1.Series["Series1"].Points.AddXY(class_name, money_value);
+                }
+
+                db.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
