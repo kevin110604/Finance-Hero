@@ -81,7 +81,7 @@ namespace FinanceHero
             this.Text = "記帳英雄";
 
             string cn = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
-                "AttachDbFilename=|DataDirectory|Database1.mdf;" +
+                "AttachDbFilename=|DataDirectory|account.mdf;" +
                 "Integrated Security=True";                     //設為True 指定使用Windows 帳號認證連接資料庫
 
             SqlConnection db = new SqlConnection(cn);           //建立連接物件
@@ -141,7 +141,7 @@ namespace FinanceHero
         private void load_chart()
         {
             string cn = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
-                "AttachDbFilename=|DataDirectory|Database1.mdf;" +
+                "AttachDbFilename=|DataDirectory|account.mdf;" +
                 "Integrated Security=True";                     //設為True 指定使用Windows 帳號認證連接資料庫
             SqlConnection db = new SqlConnection(cn);           //建立連接物件    
             SqlCommand cmd = new SqlCommand
