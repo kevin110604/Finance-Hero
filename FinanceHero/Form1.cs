@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using System.Data.SqlClient; //引用System.Data.SqlClient命名空間
-using System.Media;
-//for test
+using System.Data.SqlClient;        //引用System.Data.SqlClient命名空間
+using System.Media;                 //play sound required
+
 namespace FinanceHero
 {
     public partial class Home : Form
@@ -204,7 +204,12 @@ namespace FinanceHero
                     HPlabel.Text = "" + AlienHP;
                 }
             }
-
+            click_count++;
+            if (click_count >= 20)                              //每點20下紀錄遊戲數據
+            {
+                click_count = 0;
+                save_game_records();
+            }
         }
 
         int AlienLevel, AlienHP, SpaceLevel, SpaceLATK, SpaceHATK, Coin;
@@ -310,6 +315,32 @@ namespace FinanceHero
             }
 
             HPlabel.Text = "" + AlienHP;                        //更新怪物血量
+        }
+
+        private void save_game_records()
+        {
+            string cn = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
+                "AttachDbFilename=|DataDirectory|account.mdf;" +
+                "Integrated Security=True";                     //設為True 指定使用Windows 帳號認證連接資料庫
+            SqlConnection db = new SqlConnection(cn);           //建立連接物件    
+            SqlCommand cmd = new SqlCommand
+                ("UPDATE 遊戲紀錄 SET AlienLevel = "+ AlienLevel +
+                ", AlienHP = "+ AlienHP + 
+                ", SpaceLevel = "+ SpaceLevel + 
+                ", SpaceLATK = "+ SpaceLATK + 
+                ", SpaceHATK = "+ SpaceHATK + 
+                ", Coin = "+ Coin + "WHERE virtualkey = 1", db);
+
+            try
+            {
+                db.Open();                                      //使用Open方法開啟和資料庫的連接
+                cmd.ExecuteNonQuery();
+                db.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
