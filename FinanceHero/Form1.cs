@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using System.Data.SqlClient; //引用System.Data.SqlClient命名空間
+using System.Media;
 //for test
 namespace FinanceHero
 {
@@ -52,6 +53,13 @@ namespace FinanceHero
             Shoppanel.Visible = false;
             Heropanel.Visible = true;
             Statispanel.Visible = false;
+
+            Spacepic.SizeMode = PictureBoxSizeMode.StretchImage;
+            Alienpic.SizeMode = PictureBoxSizeMode.StretchImage;
+            Spacepic.Image = Image.FromFile(@"..\..\Resources\space1.png");
+            Alienpic.Image = Image.FromFile(@"..\..\Resources\alien.png");
+            
+
         }
 
         int only_once = 0;
@@ -178,6 +186,14 @@ namespace FinanceHero
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void Alienpic_MouseDown(object sender, MouseEventArgs e)
+        {
+            SoundPlayer sp = new SoundPlayer();
+            sp.SoundLocation = @"..\..\Resources\Shoot1.wav";
+            sp.Play();
+
         }
     }
 }

@@ -64,6 +64,8 @@
             this.Chartlabel = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Statislabel = new System.Windows.Forms.Label();
+            this.Spacepic = new System.Windows.Forms.PictureBox();
+            this.Alienpic = new System.Windows.Forms.PictureBox();
             this.Toppanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Coinicon)).BeginInit();
             this.Homepanel.SuspendLayout();
@@ -72,6 +74,8 @@
             this.Heropanel.SuspendLayout();
             this.Statispanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Spacepic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Alienpic)).BeginInit();
             this.SuspendLayout();
             // 
             // Toppanel
@@ -82,7 +86,7 @@
             this.Toppanel.Controls.Add(this.label_title);
             this.Toppanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.Toppanel.Location = new System.Drawing.Point(0, 0);
-            this.Toppanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Toppanel.Margin = new System.Windows.Forms.Padding(2);
             this.Toppanel.Name = "Toppanel";
             this.Toppanel.Size = new System.Drawing.Size(512, 59);
             this.Toppanel.TabIndex = 0;
@@ -103,7 +107,7 @@
             // 
             this.Coinicon.Image = global::FinanceHero.Properties.Resources.coins__3_;
             this.Coinicon.Location = new System.Drawing.Point(256, 8);
-            this.Coinicon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Coinicon.Margin = new System.Windows.Forms.Padding(2);
             this.Coinicon.Name = "Coinicon";
             this.Coinicon.Size = new System.Drawing.Size(40, 38);
             this.Coinicon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -140,7 +144,7 @@
             this.Homepanel.Controls.Add(this.Homelabel);
             this.Homepanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Homepanel.Location = new System.Drawing.Point(0, 59);
-            this.Homepanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Homepanel.Margin = new System.Windows.Forms.Padding(2);
             this.Homepanel.Name = "Homepanel";
             this.Homepanel.Size = new System.Drawing.Size(512, 396);
             this.Homepanel.TabIndex = 2;
@@ -208,7 +212,7 @@
             this.Addbutton.Font = new System.Drawing.Font("Good Times Rg", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Addbutton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Addbutton.Location = new System.Drawing.Point(281, 279);
-            this.Addbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Addbutton.Margin = new System.Windows.Forms.Padding(2);
             this.Addbutton.Name = "Addbutton";
             this.Addbutton.Size = new System.Drawing.Size(178, 44);
             this.Addbutton.TabIndex = 8;
@@ -254,7 +258,7 @@
             // 
             this.databuttond3.Font = new System.Drawing.Font("微軟正黑體", 12F);
             this.databuttond3.Location = new System.Drawing.Point(16, 279);
-            this.databuttond3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.databuttond3.Margin = new System.Windows.Forms.Padding(2);
             this.databuttond3.Name = "databuttond3";
             this.databuttond3.Size = new System.Drawing.Size(178, 44);
             this.databuttond3.TabIndex = 4;
@@ -265,7 +269,7 @@
             // 
             this.databuttond2.Font = new System.Drawing.Font("微軟正黑體", 12F);
             this.databuttond2.Location = new System.Drawing.Point(16, 219);
-            this.databuttond2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.databuttond2.Margin = new System.Windows.Forms.Padding(2);
             this.databuttond2.Name = "databuttond2";
             this.databuttond2.Size = new System.Drawing.Size(178, 44);
             this.databuttond2.TabIndex = 3;
@@ -276,7 +280,7 @@
             // 
             this.databuttond1.Font = new System.Drawing.Font("微軟正黑體", 12F);
             this.databuttond1.Location = new System.Drawing.Point(16, 159);
-            this.databuttond1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.databuttond1.Margin = new System.Windows.Forms.Padding(2);
             this.databuttond1.Name = "databuttond1";
             this.databuttond1.Size = new System.Drawing.Size(178, 44);
             this.databuttond1.TabIndex = 2;
@@ -288,7 +292,7 @@
             this.buttontitle.Enabled = false;
             this.buttontitle.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.buttontitle.Location = new System.Drawing.Point(16, 97);
-            this.buttontitle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttontitle.Margin = new System.Windows.Forms.Padding(2);
             this.buttontitle.Name = "buttontitle";
             this.buttontitle.Size = new System.Drawing.Size(178, 44);
             this.buttontitle.TabIndex = 1;
@@ -315,7 +319,7 @@
             this.BottomPanel.Controls.Add(this.Statisbutton);
             this.BottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BottomPanel.Location = new System.Drawing.Point(0, 455);
-            this.BottomPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BottomPanel.Margin = new System.Windows.Forms.Padding(2);
             this.BottomPanel.Name = "BottomPanel";
             this.BottomPanel.Size = new System.Drawing.Size(512, 67);
             this.BottomPanel.TabIndex = 1;
@@ -328,7 +332,7 @@
             this.Homebutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Homebutton.Font = new System.Drawing.Font("Good Times Rg", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Homebutton.Location = new System.Drawing.Point(2, 2);
-            this.Homebutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Homebutton.Margin = new System.Windows.Forms.Padding(2);
             this.Homebutton.Name = "Homebutton";
             this.Homebutton.Size = new System.Drawing.Size(122, 65);
             this.Homebutton.TabIndex = 0;
@@ -344,7 +348,7 @@
             this.Shopbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Shopbutton.Font = new System.Drawing.Font("Good Times Rg", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Shopbutton.Location = new System.Drawing.Point(128, 2);
-            this.Shopbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Shopbutton.Margin = new System.Windows.Forms.Padding(2);
             this.Shopbutton.Name = "Shopbutton";
             this.Shopbutton.Size = new System.Drawing.Size(122, 65);
             this.Shopbutton.TabIndex = 1;
@@ -360,7 +364,7 @@
             this.Herobutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Herobutton.Font = new System.Drawing.Font("Good Times Rg", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Herobutton.Location = new System.Drawing.Point(254, 2);
-            this.Herobutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Herobutton.Margin = new System.Windows.Forms.Padding(2);
             this.Herobutton.Name = "Herobutton";
             this.Herobutton.Size = new System.Drawing.Size(122, 65);
             this.Herobutton.TabIndex = 2;
@@ -376,7 +380,7 @@
             this.Statisbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Statisbutton.Font = new System.Drawing.Font("Good Times Rg", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Statisbutton.Location = new System.Drawing.Point(380, 2);
-            this.Statisbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Statisbutton.Margin = new System.Windows.Forms.Padding(2);
             this.Statisbutton.Name = "Statisbutton";
             this.Statisbutton.Size = new System.Drawing.Size(127, 65);
             this.Statisbutton.TabIndex = 3;
@@ -390,7 +394,7 @@
             this.Shoppanel.Controls.Add(this.Shoplabel);
             this.Shoppanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Shoppanel.Location = new System.Drawing.Point(0, 59);
-            this.Shoppanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Shoppanel.Margin = new System.Windows.Forms.Padding(2);
             this.Shoppanel.Name = "Shoppanel";
             this.Shoppanel.Size = new System.Drawing.Size(512, 396);
             this.Shoppanel.TabIndex = 3;
@@ -408,13 +412,15 @@
             // 
             // Heropanel
             // 
-            this.Heropanel.BackColor = System.Drawing.Color.White;
+            this.Heropanel.BackColor = System.Drawing.Color.Transparent;
             this.Heropanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Heropanel.BackgroundImage")));
+            this.Heropanel.Controls.Add(this.Alienpic);
+            this.Heropanel.Controls.Add(this.Spacepic);
             this.Heropanel.Controls.Add(this.Herolabel);
             this.Heropanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Heropanel.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.Heropanel.Location = new System.Drawing.Point(0, 59);
-            this.Heropanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Heropanel.Margin = new System.Windows.Forms.Padding(2);
             this.Heropanel.Name = "Heropanel";
             this.Heropanel.Size = new System.Drawing.Size(512, 396);
             this.Heropanel.TabIndex = 4;
@@ -440,7 +446,7 @@
             this.Statispanel.Controls.Add(this.Statislabel);
             this.Statispanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Statispanel.Location = new System.Drawing.Point(0, 59);
-            this.Statispanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Statispanel.Margin = new System.Windows.Forms.Padding(2);
             this.Statispanel.Name = "Statispanel";
             this.Statispanel.Size = new System.Drawing.Size(512, 396);
             this.Statispanel.TabIndex = 5;
@@ -490,19 +496,36 @@
             this.Statislabel.TabIndex = 0;
             this.Statislabel.Text = "Statistical";
             // 
+            // Spacepic
+            // 
+            this.Spacepic.Location = new System.Drawing.Point(224, 279);
+            this.Spacepic.Name = "Spacepic";
+            this.Spacepic.Size = new System.Drawing.Size(72, 65);
+            this.Spacepic.TabIndex = 1;
+            this.Spacepic.TabStop = false;
+            // 
+            // Alienpic
+            // 
+            this.Alienpic.Location = new System.Drawing.Point(179, 69);
+            this.Alienpic.Name = "Alienpic";
+            this.Alienpic.Size = new System.Drawing.Size(168, 151);
+            this.Alienpic.TabIndex = 2;
+            this.Alienpic.TabStop = false;
+            this.Alienpic.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Alienpic_MouseDown);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(512, 522);
+            this.Controls.Add(this.Heropanel);
             this.Controls.Add(this.Homepanel);
             this.Controls.Add(this.Shoppanel);
-            this.Controls.Add(this.Heropanel);
             this.Controls.Add(this.Statispanel);
             this.Controls.Add(this.BottomPanel);
             this.Controls.Add(this.Toppanel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Home";
             this.Text = "Home";
             this.Toppanel.ResumeLayout(false);
@@ -518,6 +541,8 @@
             this.Statispanel.ResumeLayout(false);
             this.Statispanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Spacepic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Alienpic)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -556,6 +581,8 @@
         private System.Windows.Forms.Label Addlabel;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Label Chartlabel;
+        private System.Windows.Forms.PictureBox Alienpic;
+        private System.Windows.Forms.PictureBox Spacepic;
     }
 }
 
