@@ -66,6 +66,7 @@
             this.Statislabel = new System.Windows.Forms.Label();
             this.Spacepic = new System.Windows.Forms.PictureBox();
             this.Alienpic = new System.Windows.Forms.PictureBox();
+            this.HPlabel = new System.Windows.Forms.Label();
             this.Toppanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Coinicon)).BeginInit();
             this.Homepanel.SuspendLayout();
@@ -414,6 +415,7 @@
             // 
             this.Heropanel.BackColor = System.Drawing.Color.Transparent;
             this.Heropanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Heropanel.BackgroundImage")));
+            this.Heropanel.Controls.Add(this.HPlabel);
             this.Heropanel.Controls.Add(this.Alienpic);
             this.Heropanel.Controls.Add(this.Spacepic);
             this.Heropanel.Controls.Add(this.Herolabel);
@@ -513,6 +515,15 @@
             this.Alienpic.TabStop = false;
             this.Alienpic.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Alienpic_MouseDown);
             // 
+            // HPlabel
+            // 
+            this.HPlabel.AutoSize = true;
+            this.HPlabel.Location = new System.Drawing.Point(392, 204);
+            this.HPlabel.Name = "HPlabel";
+            this.HPlabel.Size = new System.Drawing.Size(33, 12);
+            this.HPlabel.TabIndex = 3;
+            this.HPlabel.Text = "label1";
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -583,6 +594,7 @@
         private System.Windows.Forms.Label Chartlabel;
         private System.Windows.Forms.PictureBox Alienpic;
         private System.Windows.Forms.PictureBox Spacepic;
+        private System.Windows.Forms.Label HPlabel;
     }
 }
 
