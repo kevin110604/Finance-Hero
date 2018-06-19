@@ -55,12 +55,6 @@ namespace FinanceHero
             Statispanel.Visible = false;
 
             load_game();
-            Spacepic.SizeMode = PictureBoxSizeMode.StretchImage;
-            Alienpic.SizeMode = PictureBoxSizeMode.StretchImage;
-            Spacepic.Image = Image.FromFile(@"..\..\Resources\astronaut-with-a-flag.png");
-            Alienpic.Image = Image.FromFile(@"..\..\Resources\alien.png");
-            
-
         }
 
         int only_once = 0;
@@ -189,17 +183,31 @@ namespace FinanceHero
             }
         }
 
+        int click_count = 0;
         private void Alienpic_MouseDown(object sender, MouseEventArgs e)
         {
             SoundPlayer sp = new SoundPlayer();
             sp.SoundLocation = @"..\..\Resources\Shoot1.wav";
             sp.Play();
 
-
+            AlienHP -= SpaceHATK;                               //怪物扣血
+            HPlabel.Text = "" + AlienHP;
+            if (AlienHP <= 0)                                   //如果血扣完了
+            {
+                if (AlienLevel < 10)                            //怪物等級上限
+                {
+                    alien_levelup();
+                }
+                else
+                {
+                    AlienHP = 0;
+                    HPlabel.Text = "" + AlienHP;
+                }
+            }
 
         }
 
-        int AlienLevel, AlienHP, SpaceLevel, Coin;
+        int AlienLevel, AlienHP, SpaceLevel, SpaceLATK, SpaceHATK, Coin;
         private void load_game()
         {
             string cn = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
@@ -238,6 +246,14 @@ namespace FinanceHero
                         }
                         else if (i == 4)
                         {
+                            SpaceLATK = int.Parse(dr[i].ToString());
+                        }
+                        else if (i == 5)
+                        {
+                            SpaceHATK = int.Parse(dr[i].ToString());
+                        }
+                        else if (i == 6)
+                        {
                             Coin = int.Parse(dr[i].ToString());
                         }
                     }
@@ -250,6 +266,50 @@ namespace FinanceHero
             }
 
             HPlabel.Text = "" + AlienHP;
+            Spacepic.SizeMode = PictureBoxSizeMode.StretchImage;
+            Alienpic.SizeMode = PictureBoxSizeMode.StretchImage;
+            Spacepic.Image = Image.FromFile(@"..\..\Resources\astronaut-with-a-flag.png");
+            Alienpic.Image = Image.FromFile(@"..\..\Resources\alien.png");
+
+        }
+
+        private void alien_levelup()
+        {
+            AlienLevel++;                                       //怪物升級
+
+            string cn = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
+                "AttachDbFilename=|DataDirectory|account.mdf;" +
+                "Integrated Security=True";                     //設為True 指定使用Windows 帳號認證連接資料庫
+            SqlConnection db = new SqlConnection(cn);           //建立連接物件    
+            SqlCommand cmd = new SqlCommand
+                ("SELECT hp FROM 怪血量 WHERE level = "+AlienLevel, db);
+
+            try
+            {
+                db.Open();                                      //使用Open方法開啟和資料庫的連接
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                string column_name = "";                        //用不到的column標題
+                for (int i = 0; i < dr.FieldCount; i++)         //讀column標題
+                {
+                    column_name += dr.GetName(i) + "  ";
+                }
+
+                while (dr.Read())
+                {
+                    for (int i = 0; i < dr.FieldCount; i++)
+                    {
+                        AlienHP = int.Parse(dr[i].ToString());
+                    }
+                }
+                db.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            HPlabel.Text = "" + AlienHP;                        //更新怪物血量
         }
     }
 }

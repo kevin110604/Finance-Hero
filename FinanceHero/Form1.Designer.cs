@@ -518,9 +518,10 @@
             // HPlabel
             // 
             this.HPlabel.AutoSize = true;
-            this.HPlabel.Location = new System.Drawing.Point(392, 204);
+            this.HPlabel.Font = new System.Drawing.Font("Good Times Rg", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HPlabel.Location = new System.Drawing.Point(375, 195);
             this.HPlabel.Name = "HPlabel";
-            this.HPlabel.Size = new System.Drawing.Size(33, 12);
+            this.HPlabel.Size = new System.Drawing.Size(106, 25);
             this.HPlabel.TabIndex = 3;
             this.HPlabel.Text = "label1";
             // 
