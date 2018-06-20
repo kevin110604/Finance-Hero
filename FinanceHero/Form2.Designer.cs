@@ -32,6 +32,8 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.NTDlabel = new System.Windows.Forms.Label();
             this.Addpanel = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.Confirmbutton = new System.Windows.Forms.Button();
             this.TimetextBox = new System.Windows.Forms.TextBox();
             this.TypetextBox = new System.Windows.Forms.TextBox();
@@ -39,9 +41,6 @@
             this.Descriptionlabel = new System.Windows.Forms.Label();
             this.classlabel = new System.Windows.Forms.Label();
             this.Timelabel = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Toppanel.SuspendLayout();
             this.Addpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -55,7 +54,7 @@
             this.Toppanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.Toppanel.Location = new System.Drawing.Point(0, 0);
             this.Toppanel.Name = "Toppanel";
-            this.Toppanel.Size = new System.Drawing.Size(1040, 58);
+            this.Toppanel.Size = new System.Drawing.Size(457, 58);
             this.Toppanel.TabIndex = 0;
             // 
             // textBox1
@@ -85,7 +84,6 @@
             // 
             this.Addpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(45)))), ((int)(((byte)(60)))));
             this.Addpanel.Controls.Add(this.dataGridView1);
-            this.Addpanel.Controls.Add(this.dateTimePicker1);
             this.Addpanel.Controls.Add(this.textBox2);
             this.Addpanel.Controls.Add(this.Confirmbutton);
             this.Addpanel.Controls.Add(this.TimetextBox);
@@ -97,15 +95,36 @@
             this.Addpanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Addpanel.Location = new System.Drawing.Point(0, 58);
             this.Addpanel.Name = "Addpanel";
-            this.Addpanel.Size = new System.Drawing.Size(1040, 585);
+            this.Addpanel.Size = new System.Drawing.Size(457, 585);
             this.Addpanel.TabIndex = 1;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(27, 369);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 27;
+            this.dataGridView1.Size = new System.Drawing.Size(422, 179);
+            this.dataGridView1.TabIndex = 11;
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.Gainsboro;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox2.Font = new System.Drawing.Font("Good Times", 15F);
+            this.textBox2.Location = new System.Drawing.Point(27, 311);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(93, 36);
+            this.textBox2.TabIndex = 9;
+            this.textBox2.Text = "4";
             // 
             // Confirmbutton
             // 
             this.Confirmbutton.Font = new System.Drawing.Font("Good Times", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Confirmbutton.Location = new System.Drawing.Point(138, 299);
+            this.Confirmbutton.Location = new System.Drawing.Point(126, 311);
             this.Confirmbutton.Name = "Confirmbutton";
-            this.Confirmbutton.Size = new System.Drawing.Size(191, 33);
+            this.Confirmbutton.Size = new System.Drawing.Size(221, 36);
             this.Confirmbutton.TabIndex = 6;
             this.Confirmbutton.Text = "Confirm";
             this.Confirmbutton.UseVisualStyleBackColor = true;
@@ -180,40 +199,12 @@
             this.Timelabel.TabIndex = 0;
             this.Timelabel.Text = "Time";
             // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.Color.Gainsboro;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Font = new System.Drawing.Font("Good Times", 15F);
-            this.textBox2.Location = new System.Drawing.Point(12, 301);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(93, 36);
-            this.textBox2.TabIndex = 9;
-            this.textBox2.Text = "4";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(138, 18);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(143, 25);
-            this.dateTimePicker1.TabIndex = 10;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(348, 283);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(633, 290);
-            this.dataGridView1.TabIndex = 11;
-            // 
             // AddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(1040, 643);
+            this.ClientSize = new System.Drawing.Size(457, 643);
             this.Controls.Add(this.Addpanel);
             this.Controls.Add(this.Toppanel);
             this.Name = "AddForm";
@@ -241,7 +232,6 @@
         private System.Windows.Forms.Button Confirmbutton;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
