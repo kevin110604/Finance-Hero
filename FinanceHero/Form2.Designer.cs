@@ -53,30 +53,33 @@
             this.Toppanel.Controls.Add(this.NTDlabel);
             this.Toppanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.Toppanel.Location = new System.Drawing.Point(0, 0);
+            this.Toppanel.Margin = new System.Windows.Forms.Padding(2);
             this.Toppanel.Name = "Toppanel";
-            this.Toppanel.Size = new System.Drawing.Size(457, 58);
+            this.Toppanel.Size = new System.Drawing.Size(343, 46);
             this.Toppanel.TabIndex = 0;
             // 
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.Color.Gainsboro;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Good Times", 15F);
-            this.textBox1.Location = new System.Drawing.Point(131, 11);
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.textBox1.Location = new System.Drawing.Point(98, 9);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(315, 36);
+            this.textBox1.Size = new System.Drawing.Size(237, 29);
             this.textBox1.TabIndex = 8;
             this.textBox1.Text = "500";
             // 
             // NTDlabel
             // 
             this.NTDlabel.AutoSize = true;
-            this.NTDlabel.Font = new System.Drawing.Font("Greek Diner Inline TT", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NTDlabel.Font = new System.Drawing.Font("Good Times Rg", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NTDlabel.ForeColor = System.Drawing.Color.White;
-            this.NTDlabel.Location = new System.Drawing.Point(19, 12);
+            this.NTDlabel.Location = new System.Drawing.Point(14, 10);
+            this.NTDlabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.NTDlabel.Name = "NTDlabel";
-            this.NTDlabel.Size = new System.Drawing.Size(89, 43);
+            this.NTDlabel.Size = new System.Drawing.Size(80, 34);
             this.NTDlabel.TabIndex = 7;
             this.NTDlabel.Text = "‎NT$";
             // 
@@ -93,38 +96,42 @@
             this.Addpanel.Controls.Add(this.classlabel);
             this.Addpanel.Controls.Add(this.Timelabel);
             this.Addpanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Addpanel.Location = new System.Drawing.Point(0, 58);
+            this.Addpanel.Location = new System.Drawing.Point(0, 46);
+            this.Addpanel.Margin = new System.Windows.Forms.Padding(2);
             this.Addpanel.Name = "Addpanel";
-            this.Addpanel.Size = new System.Drawing.Size(457, 585);
+            this.Addpanel.Size = new System.Drawing.Size(343, 468);
             this.Addpanel.TabIndex = 1;
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(27, 369);
+            this.dataGridView1.Location = new System.Drawing.Point(20, 295);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(422, 179);
+            this.dataGridView1.Size = new System.Drawing.Size(316, 143);
             this.dataGridView1.TabIndex = 11;
             // 
             // textBox2
             // 
             this.textBox2.BackColor = System.Drawing.Color.Gainsboro;
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Font = new System.Drawing.Font("Good Times", 15F);
-            this.textBox2.Location = new System.Drawing.Point(27, 311);
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.textBox2.Location = new System.Drawing.Point(20, 249);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(93, 36);
+            this.textBox2.Size = new System.Drawing.Size(70, 29);
             this.textBox2.TabIndex = 9;
             this.textBox2.Text = "4";
             // 
             // Confirmbutton
             // 
-            this.Confirmbutton.Font = new System.Drawing.Font("Good Times", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Confirmbutton.Location = new System.Drawing.Point(126, 311);
+            this.Confirmbutton.Font = new System.Drawing.Font("Good Times Rg", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Confirmbutton.Location = new System.Drawing.Point(94, 249);
+            this.Confirmbutton.Margin = new System.Windows.Forms.Padding(2);
             this.Confirmbutton.Name = "Confirmbutton";
-            this.Confirmbutton.Size = new System.Drawing.Size(221, 36);
+            this.Confirmbutton.Size = new System.Drawing.Size(166, 29);
             this.Confirmbutton.TabIndex = 6;
             this.Confirmbutton.Text = "Confirm";
             this.Confirmbutton.UseVisualStyleBackColor = true;
@@ -134,11 +141,12 @@
             // 
             this.TimetextBox.BackColor = System.Drawing.Color.Gainsboro;
             this.TimetextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TimetextBox.Font = new System.Drawing.Font("Good Times", 15F);
-            this.TimetextBox.Location = new System.Drawing.Point(27, 49);
+            this.TimetextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.TimetextBox.Location = new System.Drawing.Point(20, 39);
+            this.TimetextBox.Margin = new System.Windows.Forms.Padding(2);
             this.TimetextBox.Multiline = true;
             this.TimetextBox.Name = "TimetextBox";
-            this.TimetextBox.Size = new System.Drawing.Size(422, 36);
+            this.TimetextBox.Size = new System.Drawing.Size(317, 29);
             this.TimetextBox.TabIndex = 5;
             this.TimetextBox.Text = "20180618";
             // 
@@ -146,11 +154,12 @@
             // 
             this.TypetextBox.BackColor = System.Drawing.Color.Gainsboro;
             this.TypetextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TypetextBox.Font = new System.Drawing.Font("Good Times", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TypetextBox.Location = new System.Drawing.Point(26, 136);
+            this.TypetextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TypetextBox.Location = new System.Drawing.Point(20, 109);
+            this.TypetextBox.Margin = new System.Windows.Forms.Padding(2);
             this.TypetextBox.Multiline = true;
             this.TypetextBox.Name = "TypetextBox";
-            this.TypetextBox.Size = new System.Drawing.Size(422, 36);
+            this.TypetextBox.Size = new System.Drawing.Size(317, 29);
             this.TypetextBox.TabIndex = 4;
             this.TypetextBox.Text = "drink";
             // 
@@ -158,55 +167,60 @@
             // 
             this.DescripttextBox.BackColor = System.Drawing.Color.Gainsboro;
             this.DescripttextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.DescripttextBox.Font = new System.Drawing.Font("Good Times", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DescripttextBox.Location = new System.Drawing.Point(27, 223);
+            this.DescripttextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DescripttextBox.Location = new System.Drawing.Point(20, 178);
+            this.DescripttextBox.Margin = new System.Windows.Forms.Padding(2);
             this.DescripttextBox.Multiline = true;
             this.DescripttextBox.Name = "DescripttextBox";
-            this.DescripttextBox.Size = new System.Drawing.Size(422, 36);
+            this.DescripttextBox.Size = new System.Drawing.Size(317, 29);
             this.DescripttextBox.TabIndex = 3;
             this.DescripttextBox.Text = "tea";
             // 
             // Descriptionlabel
             // 
             this.Descriptionlabel.AutoSize = true;
-            this.Descriptionlabel.Font = new System.Drawing.Font("Good Times", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Descriptionlabel.Font = new System.Drawing.Font("Good Times Rg", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Descriptionlabel.ForeColor = System.Drawing.Color.White;
-            this.Descriptionlabel.Location = new System.Drawing.Point(22, 197);
+            this.Descriptionlabel.Location = new System.Drawing.Point(16, 158);
+            this.Descriptionlabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Descriptionlabel.Name = "Descriptionlabel";
-            this.Descriptionlabel.Size = new System.Drawing.Size(215, 23);
+            this.Descriptionlabel.Size = new System.Drawing.Size(167, 23);
             this.Descriptionlabel.TabIndex = 2;
             this.Descriptionlabel.Text = "Description";
             // 
             // classlabel
             // 
             this.classlabel.AutoSize = true;
-            this.classlabel.Font = new System.Drawing.Font("Good Times", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.classlabel.Font = new System.Drawing.Font("Good Times Rg", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.classlabel.ForeColor = System.Drawing.Color.White;
-            this.classlabel.Location = new System.Drawing.Point(22, 110);
+            this.classlabel.Location = new System.Drawing.Point(16, 88);
+            this.classlabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.classlabel.Name = "classlabel";
-            this.classlabel.Size = new System.Drawing.Size(113, 23);
+            this.classlabel.Size = new System.Drawing.Size(92, 23);
             this.classlabel.TabIndex = 1;
             this.classlabel.Text = "class";
             // 
             // Timelabel
             // 
             this.Timelabel.AutoSize = true;
-            this.Timelabel.Font = new System.Drawing.Font("Good Times", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Timelabel.Font = new System.Drawing.Font("Good Times Rg", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Timelabel.ForeColor = System.Drawing.Color.White;
-            this.Timelabel.Location = new System.Drawing.Point(22, 23);
+            this.Timelabel.Location = new System.Drawing.Point(16, 18);
+            this.Timelabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Timelabel.Name = "Timelabel";
-            this.Timelabel.Size = new System.Drawing.Size(83, 23);
+            this.Timelabel.Size = new System.Drawing.Size(64, 23);
             this.Timelabel.TabIndex = 0;
             this.Timelabel.Text = "Time";
             // 
             // AddForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(457, 643);
+            this.ClientSize = new System.Drawing.Size(343, 514);
             this.Controls.Add(this.Addpanel);
             this.Controls.Add(this.Toppanel);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AddForm";
             this.Text = "Add";
             this.Toppanel.ResumeLayout(false);

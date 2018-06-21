@@ -183,14 +183,21 @@ namespace FinanceHero
             }
         }
 
-        int click_count = 0;
+        
         private void Alienpic_MouseDown(object sender, MouseEventArgs e)
         {
+            
+        }
+
+
+        int click_count = 0;
+        private void Heropanel_MouseDown(object sender, MouseEventArgs e)
+        {
             SoundPlayer sp = new SoundPlayer();
-            sp.SoundLocation = @"..\..\Resources\shoot2.wav";
+            sp.SoundLocation = @"..\..\Resources\shoot1.wav";
             sp.Play();
 
-            AlienHP -= 10*SpaceHATK;                               //怪物扣血
+            AlienHP -= 10 * SpaceHATK;                            //怪物扣血
             HPlabel.Text = "" + AlienHP;
             if (AlienHP <= 0)                                   //如果血扣完了
             {
