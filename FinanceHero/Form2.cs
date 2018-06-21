@@ -21,15 +21,15 @@ namespace FinanceHero
         private void Confirmbutton_Click(object sender, EventArgs e)
         {
             Edit("INSERT INTO 記帳(date,class,description,money,virtualkey) VALUES('" +
-               TimetextBox.Text+ "','" +
-               TypetextBox.Text.Replace("'", "''") + "','" +
-               DescripttextBox.Text.Replace("'", "''") + "'," +
-               textBox1.Text + "," +
-               textBox2.Text+")");
+               TimetextBox.Text+ "'," +
+               "N" + "'" + ClasscomboBox.Text.Replace("'", "''") + "'," +
+               "N" + "'" + DescripttextBox.Text.Replace("'", "''") + "'," +
+               MoneytextBox.Text + "," +
+               KeytextBox.Text + ")");
+
             AddForm_Load(sender, e);
-
-
         }
+
         private void AddForm_Load(object sender, EventArgs e)
         {
             //建立SqlConnection物件db
@@ -48,6 +48,7 @@ namespace FinanceHero
             //dataGridView呈現的資料來源為ds內的第一個DataTable資料表(即Tables[0])
             dataGridView1.DataSource = ds.Tables[0];
         }
+
         void Edit(string sqlstr)
         {
             try
@@ -62,16 +63,11 @@ namespace FinanceHero
                 cmd.CommandText = sqlstr;
                 cmd.ExecuteNonQuery();
                 db.Close();
-               
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-            
+            }   
         }
-
-
     }
 }

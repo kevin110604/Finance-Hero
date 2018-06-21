@@ -183,12 +183,6 @@ namespace FinanceHero
             }
         }
 
-        
-        private void Alienpic_MouseDown(object sender, MouseEventArgs e)
-        {
-            
-        }
-
 
         int click_count = 0;
         private void Heropanel_MouseDown(object sender, MouseEventArgs e)
