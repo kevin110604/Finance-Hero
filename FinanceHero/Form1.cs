@@ -19,9 +19,10 @@ namespace FinanceHero
         {
             InitializeComponent();
         }
+
         private void Form1_Load(object sender, EventArgs e)
         {
-            load_database();
+            Homebutton_Click(sender, e);
 
             // set panel visable
             Homepanel.Visible = true;
@@ -29,6 +30,7 @@ namespace FinanceHero
             Heropanel.Visible = false;
             Statispanel.Visible = false;
         }
+
         private void Homebutton_Click(object sender, EventArgs e)
         {
             Homepanel.Visible = true;

@@ -20,12 +20,15 @@ namespace FinanceHero
        
         private void Confirmbutton_Click(object sender, EventArgs e)
         {
+            get_account_key();                                  //取得該前最後一筆記帳的key
+            account_key++;
+
             Edit("INSERT INTO 記帳(date,class,description,money,virtualkey) VALUES('" +
-               TimetextBox.Text+ "'," +
+               dateTimePicker1.Text + "'," +
                "N" + "'" + ClasscomboBox.Text.Replace("'", "''") + "'," +
                "N" + "'" + DescripttextBox.Text.Replace("'", "''") + "'," +
                MoneytextBox.Text + "," +
-               KeytextBox.Text + ")");
+               account_key + ")");
 
             AddForm_Load(sender, e);
         }
@@ -68,6 +71,42 @@ namespace FinanceHero
             {
                 MessageBox.Show(ex.Message);
             }   
+        }
+
+        int account_key;
+        private void get_account_key()
+        {
+            string cn = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
+                "AttachDbFilename=|DataDirectory|account.mdf;" +
+                "Integrated Security=True";                     //設為True 指定使用Windows 帳號認證連接資料庫
+            SqlConnection db = new SqlConnection(cn);           //建立連接物件    
+            SqlCommand cmd = new SqlCommand
+                ("SELECT TOP 1 virtualkey FROM 記帳 ORDER BY virtualkey DESC", db);
+
+            try
+            {
+                db.Open();                                      //使用Open方法開啟和資料庫的連接
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                string column_name = "";                        //用不到的column標題
+                for (int i = 0; i < dr.FieldCount; i++)         //讀column標題
+                {
+                    column_name += dr.GetName(i) + "  ";
+                }
+
+                while (dr.Read())
+                {
+                    for (int i = 0; i < dr.FieldCount; i++)
+                    {
+                        account_key = int.Parse(dr[i].ToString());
+                    }
+                }
+                db.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

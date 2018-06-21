@@ -33,14 +33,13 @@
             this.NTDlabel = new System.Windows.Forms.Label();
             this.Addpanel = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.KeytextBox = new System.Windows.Forms.TextBox();
             this.Confirmbutton = new System.Windows.Forms.Button();
-            this.TimetextBox = new System.Windows.Forms.TextBox();
             this.DescripttextBox = new System.Windows.Forms.TextBox();
             this.Descriptionlabel = new System.Windows.Forms.Label();
             this.classlabel = new System.Windows.Forms.Label();
             this.Timelabel = new System.Windows.Forms.Label();
             this.ClasscomboBox = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.Toppanel.SuspendLayout();
             this.Addpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -85,11 +84,10 @@
             // Addpanel
             // 
             this.Addpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(45)))), ((int)(((byte)(60)))));
+            this.Addpanel.Controls.Add(this.dateTimePicker1);
             this.Addpanel.Controls.Add(this.ClasscomboBox);
             this.Addpanel.Controls.Add(this.dataGridView1);
-            this.Addpanel.Controls.Add(this.KeytextBox);
             this.Addpanel.Controls.Add(this.Confirmbutton);
-            this.Addpanel.Controls.Add(this.TimetextBox);
             this.Addpanel.Controls.Add(this.DescripttextBox);
             this.Addpanel.Controls.Add(this.Descriptionlabel);
             this.Addpanel.Controls.Add(this.classlabel);
@@ -111,18 +109,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(316, 143);
             this.dataGridView1.TabIndex = 11;
             // 
-            // KeytextBox
-            // 
-            this.KeytextBox.BackColor = System.Drawing.Color.Gainsboro;
-            this.KeytextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.KeytextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.KeytextBox.Location = new System.Drawing.Point(20, 249);
-            this.KeytextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.KeytextBox.Multiline = true;
-            this.KeytextBox.Name = "KeytextBox";
-            this.KeytextBox.Size = new System.Drawing.Size(70, 29);
-            this.KeytextBox.TabIndex = 9;
-            // 
             // Confirmbutton
             // 
             this.Confirmbutton.Font = new System.Drawing.Font("Good Times Rg", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -134,19 +120,6 @@
             this.Confirmbutton.Text = "Confirm";
             this.Confirmbutton.UseVisualStyleBackColor = true;
             this.Confirmbutton.Click += new System.EventHandler(this.Confirmbutton_Click);
-            // 
-            // TimetextBox
-            // 
-            this.TimetextBox.BackColor = System.Drawing.Color.Gainsboro;
-            this.TimetextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TimetextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.TimetextBox.Location = new System.Drawing.Point(20, 39);
-            this.TimetextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.TimetextBox.Multiline = true;
-            this.TimetextBox.Name = "TimetextBox";
-            this.TimetextBox.Size = new System.Drawing.Size(317, 29);
-            this.TimetextBox.TabIndex = 5;
-            this.TimetextBox.Text = "20180618";
             // 
             // DescripttextBox
             // 
@@ -216,6 +189,20 @@
             this.ClasscomboBox.Size = new System.Drawing.Size(317, 33);
             this.ClasscomboBox.TabIndex = 12;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CalendarForeColor = System.Drawing.Color.Gainsboro;
+            this.dateTimePicker1.CalendarMonthBackground = System.Drawing.Color.Gainsboro;
+            this.dateTimePicker1.CalendarTitleBackColor = System.Drawing.Color.Gainsboro;
+            this.dateTimePicker1.CalendarTitleForeColor = System.Drawing.Color.Gainsboro;
+            this.dateTimePicker1.CalendarTrailingForeColor = System.Drawing.Color.Gainsboro;
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(20, 39);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(317, 30);
+            this.dateTimePicker1.TabIndex = 13;
+            // 
             // AddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -242,14 +229,13 @@
         private System.Windows.Forms.Panel Addpanel;
         private System.Windows.Forms.Label classlabel;
         private System.Windows.Forms.Label Timelabel;
-        private System.Windows.Forms.TextBox TimetextBox;
         private System.Windows.Forms.TextBox DescripttextBox;
         private System.Windows.Forms.Label Descriptionlabel;
         private System.Windows.Forms.Label NTDlabel;
         private System.Windows.Forms.Button Confirmbutton;
         private System.Windows.Forms.TextBox MoneytextBox;
-        private System.Windows.Forms.TextBox KeytextBox;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ComboBox ClasscomboBox;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
