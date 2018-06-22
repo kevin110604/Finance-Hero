@@ -29,27 +29,19 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.Toppanel = new System.Windows.Forms.Panel();
             this.coinlabel = new System.Windows.Forms.Label();
             this.Coinicon = new System.Windows.Forms.PictureBox();
             this.label_title = new System.Windows.Forms.Label();
             this.Homepanel = new System.Windows.Forms.Panel();
             this.Addlabel = new System.Windows.Forms.Label();
-            this.Recentspendlabel = new System.Windows.Forms.Label();
-            this.datelabel3 = new System.Windows.Forms.Label();
-            this.datelabel2 = new System.Windows.Forms.Label();
-            this.datelabel1 = new System.Windows.Forms.Label();
             this.Addbutton = new System.Windows.Forms.Button();
             this.totalspend = new System.Windows.Forms.Label();
             this.examplelabel = new System.Windows.Forms.Label();
             this.datelabel = new System.Windows.Forms.Label();
-            this.databuttond3 = new System.Windows.Forms.Button();
-            this.databuttond2 = new System.Windows.Forms.Button();
-            this.databuttond1 = new System.Windows.Forms.Button();
-            this.buttontitle = new System.Windows.Forms.Button();
             this.Homelabel = new System.Windows.Forms.Label();
             this.BottomPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.Homebutton = new System.Windows.Forms.Button();
@@ -128,20 +120,13 @@
             // 
             // Homepanel
             // 
+            this.Homepanel.AutoScroll = true;
             this.Homepanel.BackColor = System.Drawing.Color.White;
             this.Homepanel.Controls.Add(this.Addlabel);
-            this.Homepanel.Controls.Add(this.Recentspendlabel);
-            this.Homepanel.Controls.Add(this.datelabel3);
-            this.Homepanel.Controls.Add(this.datelabel2);
-            this.Homepanel.Controls.Add(this.datelabel1);
             this.Homepanel.Controls.Add(this.Addbutton);
             this.Homepanel.Controls.Add(this.totalspend);
             this.Homepanel.Controls.Add(this.examplelabel);
             this.Homepanel.Controls.Add(this.datelabel);
-            this.Homepanel.Controls.Add(this.databuttond3);
-            this.Homepanel.Controls.Add(this.databuttond2);
-            this.Homepanel.Controls.Add(this.databuttond1);
-            this.Homepanel.Controls.Add(this.buttontitle);
             this.Homepanel.Controls.Add(this.Homelabel);
             this.Homepanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Homepanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F);
@@ -150,60 +135,19 @@
             this.Homepanel.Name = "Homepanel";
             this.Homepanel.Size = new System.Drawing.Size(512, 396);
             this.Homepanel.TabIndex = 2;
+            this.Homepanel.Paint += new System.Windows.Forms.PaintEventHandler(this.Homepanel_Paint);
             // 
             // Addlabel
             // 
             this.Addlabel.AutoSize = true;
             this.Addlabel.Font = new System.Drawing.Font("Good Times Rg", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Addlabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(45)))), ((int)(((byte)(60)))));
-            this.Addlabel.Location = new System.Drawing.Point(249, 219);
+            this.Addlabel.Location = new System.Drawing.Point(10, 110);
             this.Addlabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Addlabel.Name = "Addlabel";
             this.Addlabel.Size = new System.Drawing.Size(268, 28);
             this.Addlabel.TabIndex = 13;
             this.Addlabel.Text = "Add Your Spend";
-            // 
-            // Recentspendlabel
-            // 
-            this.Recentspendlabel.AutoSize = true;
-            this.Recentspendlabel.Font = new System.Drawing.Font("Good Times Rg", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Recentspendlabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(45)))), ((int)(((byte)(60)))));
-            this.Recentspendlabel.Location = new System.Drawing.Point(9, 58);
-            this.Recentspendlabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.Recentspendlabel.Name = "Recentspendlabel";
-            this.Recentspendlabel.Size = new System.Drawing.Size(227, 28);
-            this.Recentspendlabel.TabIndex = 12;
-            this.Recentspendlabel.Text = "Recent Spend";
-            // 
-            // datelabel3
-            // 
-            this.datelabel3.AutoSize = true;
-            this.datelabel3.Font = new System.Drawing.Font("Good Times Rg", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.datelabel3.Location = new System.Drawing.Point(14, 266);
-            this.datelabel3.Name = "datelabel3";
-            this.datelabel3.Size = new System.Drawing.Size(55, 14);
-            this.datelabel3.TabIndex = 11;
-            this.datelabel3.Text = "date3";
-            // 
-            // datelabel2
-            // 
-            this.datelabel2.AutoSize = true;
-            this.datelabel2.Font = new System.Drawing.Font("Good Times Rg", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.datelabel2.Location = new System.Drawing.Point(14, 206);
-            this.datelabel2.Name = "datelabel2";
-            this.datelabel2.Size = new System.Drawing.Size(55, 14);
-            this.datelabel2.TabIndex = 10;
-            this.datelabel2.Text = "date2";
-            // 
-            // datelabel1
-            // 
-            this.datelabel1.AutoSize = true;
-            this.datelabel1.Font = new System.Drawing.Font("Good Times Rg", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.datelabel1.Location = new System.Drawing.Point(13, 146);
-            this.datelabel1.Name = "datelabel1";
-            this.datelabel1.Size = new System.Drawing.Size(50, 14);
-            this.datelabel1.TabIndex = 9;
-            this.datelabel1.Text = "date1";
             // 
             // Addbutton
             // 
@@ -213,10 +157,10 @@
             this.Addbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Addbutton.Font = new System.Drawing.Font("Good Times Rg", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Addbutton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Addbutton.Location = new System.Drawing.Point(281, 279);
+            this.Addbutton.Location = new System.Drawing.Point(296, 104);
             this.Addbutton.Margin = new System.Windows.Forms.Padding(2);
             this.Addbutton.Name = "Addbutton";
-            this.Addbutton.Size = new System.Drawing.Size(178, 44);
+            this.Addbutton.Size = new System.Drawing.Size(170, 44);
             this.Addbutton.TabIndex = 8;
             this.Addbutton.Text = " add new";
             this.Addbutton.UseVisualStyleBackColor = true;
@@ -227,7 +171,7 @@
             this.totalspend.AutoSize = true;
             this.totalspend.Font = new System.Drawing.Font("Good Times Rg", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalspend.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(45)))), ((int)(((byte)(60)))));
-            this.totalspend.Location = new System.Drawing.Point(283, 57);
+            this.totalspend.Location = new System.Drawing.Point(10, 62);
             this.totalspend.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.totalspend.Name = "totalspend";
             this.totalspend.Size = new System.Drawing.Size(208, 28);
@@ -253,51 +197,6 @@
             this.datelabel.Name = "datelabel";
             this.datelabel.Size = new System.Drawing.Size(0, 15);
             this.datelabel.TabIndex = 5;
-            // 
-            // databuttond3
-            // 
-            this.databuttond3.Font = new System.Drawing.Font("微軟正黑體", 12F);
-            this.databuttond3.Location = new System.Drawing.Point(16, 279);
-            this.databuttond3.Margin = new System.Windows.Forms.Padding(2);
-            this.databuttond3.Name = "databuttond3";
-            this.databuttond3.Size = new System.Drawing.Size(178, 44);
-            this.databuttond3.TabIndex = 4;
-            this.databuttond3.Text = "data3";
-            this.databuttond3.UseVisualStyleBackColor = true;
-            // 
-            // databuttond2
-            // 
-            this.databuttond2.Font = new System.Drawing.Font("微軟正黑體", 12F);
-            this.databuttond2.Location = new System.Drawing.Point(16, 219);
-            this.databuttond2.Margin = new System.Windows.Forms.Padding(2);
-            this.databuttond2.Name = "databuttond2";
-            this.databuttond2.Size = new System.Drawing.Size(178, 44);
-            this.databuttond2.TabIndex = 3;
-            this.databuttond2.Text = "data2";
-            this.databuttond2.UseVisualStyleBackColor = true;
-            // 
-            // databuttond1
-            // 
-            this.databuttond1.Font = new System.Drawing.Font("微軟正黑體", 12F);
-            this.databuttond1.Location = new System.Drawing.Point(16, 159);
-            this.databuttond1.Margin = new System.Windows.Forms.Padding(2);
-            this.databuttond1.Name = "databuttond1";
-            this.databuttond1.Size = new System.Drawing.Size(178, 44);
-            this.databuttond1.TabIndex = 2;
-            this.databuttond1.Text = "data1";
-            this.databuttond1.UseVisualStyleBackColor = true;
-            // 
-            // buttontitle
-            // 
-            this.buttontitle.Enabled = false;
-            this.buttontitle.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.buttontitle.Location = new System.Drawing.Point(16, 97);
-            this.buttontitle.Margin = new System.Windows.Forms.Padding(2);
-            this.buttontitle.Name = "buttontitle";
-            this.buttontitle.Size = new System.Drawing.Size(178, 44);
-            this.buttontitle.TabIndex = 1;
-            this.buttontitle.Text = "buttontitle";
-            this.buttontitle.UseVisualStyleBackColor = true;
             // 
             // Homelabel
             // 
@@ -494,22 +393,22 @@
             // 
             // chart1
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chart1.Legends.Add(legend4);
+            chartArea10.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea10);
+            legend10.Name = "Legend1";
+            this.chart1.Legends.Add(legend10);
             this.chart1.Location = new System.Drawing.Point(15, 112);
             this.chart1.Margin = new System.Windows.Forms.Padding(2);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series4.BorderColor = System.Drawing.Color.Transparent;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series4.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series4.IsXValueIndexed = true;
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chart1.Series.Add(series4);
+            series10.BorderColor = System.Drawing.Color.Transparent;
+            series10.ChartArea = "ChartArea1";
+            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series10.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series10.IsXValueIndexed = true;
+            series10.Legend = "Legend1";
+            series10.Name = "Series1";
+            this.chart1.Series.Add(series10);
             this.chart1.Size = new System.Drawing.Size(269, 280);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
@@ -578,18 +477,10 @@
         private System.Windows.Forms.Label label_title;
         private System.Windows.Forms.PictureBox Coinicon;
         private System.Windows.Forms.Label coinlabel;
-        private System.Windows.Forms.Button buttontitle;
-        private System.Windows.Forms.Button databuttond2;
-        private System.Windows.Forms.Button databuttond1;
-        private System.Windows.Forms.Button databuttond3;
         private System.Windows.Forms.Label datelabel;
         private System.Windows.Forms.Label examplelabel;
         private System.Windows.Forms.Label totalspend;
         private System.Windows.Forms.Button Addbutton;
-        private System.Windows.Forms.Label datelabel3;
-        private System.Windows.Forms.Label datelabel2;
-        private System.Windows.Forms.Label datelabel1;
-        private System.Windows.Forms.Label Recentspendlabel;
         private System.Windows.Forms.Label Addlabel;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Label Chartlabel;

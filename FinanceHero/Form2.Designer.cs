@@ -66,7 +66,7 @@
             this.MoneytextBox.Margin = new System.Windows.Forms.Padding(2);
             this.MoneytextBox.Multiline = true;
             this.MoneytextBox.Name = "MoneytextBox";
-            this.MoneytextBox.Size = new System.Drawing.Size(224, 29);
+            this.MoneytextBox.Size = new System.Drawing.Size(240, 29);
             this.MoneytextBox.TabIndex = 8;
             // 
             // NTDlabel
@@ -112,7 +112,7 @@
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker1.Location = new System.Drawing.Point(20, 39);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(302, 30);
+            this.dateTimePicker1.Size = new System.Drawing.Size(318, 30);
             this.dateTimePicker1.TabIndex = 13;
             // 
             // ClasscomboBox
@@ -132,7 +132,7 @@
             "秘密"});
             this.ClasscomboBox.Location = new System.Drawing.Point(20, 109);
             this.ClasscomboBox.Name = "ClasscomboBox";
-            this.ClasscomboBox.Size = new System.Drawing.Size(302, 33);
+            this.ClasscomboBox.Size = new System.Drawing.Size(318, 33);
             this.ClasscomboBox.TabIndex = 12;
             // 
             // dataGridView1
@@ -142,7 +142,7 @@
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(302, 143);
+            this.dataGridView1.Size = new System.Drawing.Size(318, 143);
             this.dataGridView1.TabIndex = 11;
             // 
             // Confirmbutton
@@ -166,7 +166,7 @@
             this.DescripttextBox.Margin = new System.Windows.Forms.Padding(2);
             this.DescripttextBox.Multiline = true;
             this.DescripttextBox.Name = "DescripttextBox";
-            this.DescripttextBox.Size = new System.Drawing.Size(302, 29);
+            this.DescripttextBox.Size = new System.Drawing.Size(318, 29);
             this.DescripttextBox.TabIndex = 3;
             // 
             // Descriptionlabel

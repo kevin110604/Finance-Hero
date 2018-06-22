@@ -37,8 +37,6 @@ namespace FinanceHero
             Shoppanel.Visible = false;
             Heropanel.Visible = false;
             Statispanel.Visible = false;
-
-            load_database();
         }
 
         private void Shopbutton_Click(object sender, EventArgs e)
@@ -78,69 +76,6 @@ namespace FinanceHero
         {
             AddForm addf = new AddForm();
             addf.Show();
-        }
-
-        private void load_database()
-        {
-            //read data
-            this.Text = "記帳英雄";
-
-            string cn = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
-                "AttachDbFilename=|DataDirectory|account.mdf;" +
-                "Integrated Security=True";                     //設為True 指定使用Windows 帳號認證連接資料庫
-
-            SqlConnection db = new SqlConnection(cn);           //建立連接物件
-            db.Open();                                          //使用Open方法開啟和資料庫的連接
-            SqlCommand cmd = new SqlCommand
-                ("SELECT TOP 3 * FROM 記帳", db);
-            SqlDataReader dr = cmd.ExecuteReader();
-
-            string data = "";                                   //宣告字串存放資料內容
-            string key = "", date = "";
-            for (int i = 0; i < dr.FieldCount; i++)             //讀column標題
-            {
-                data += dr.GetName(i) + "  ";
-            }
-            buttontitle.Text = "用途 / 名稱 / 金額";
-
-
-            int j = 1;
-            data = "";
-            while (dr.Read())
-            {
-                for (int i = 0; i < dr.FieldCount; i++)
-                {
-                    if (i == 0)                                 //讀key
-                        key = dr[i].ToString();
-                    else if (i == 1)                            //讀日期
-                        date = dr[i].ToString();
-                    else if (i <= 3)                            //把資料讀出來
-                        data += dr[i].ToString() + " / ";
-                    else
-                        data += dr[i].ToString();
-                }
-
-                if (j == 1)
-                {
-                    datelabel1.Text = date;
-                    databuttond1.Text = data;
-                }
-                else if (j == 2)
-                {
-                    datelabel2.Text = date;
-                    databuttond2.Text = data;
-                }
-                else if (j == 3)
-                {
-                    datelabel3.Text = date;
-                    databuttond3.Text = data;
-                }
-
-                j++;
-                data = "";
-            }
-
-            db.Close();                                         //使用Close方法關閉和資料庫的連接
         }
 
         private void load_chart()
@@ -212,6 +147,17 @@ namespace FinanceHero
             {
                 click_count = 0;
                 save_game_records();
+            }
+        }
+
+
+        int load_once;
+        private void Homepanel_Paint(object sender, PaintEventArgs e)
+        {
+            if (load_once == 0)
+            {
+                create();
+                load_once++;
             }
         }
 
@@ -344,6 +290,102 @@ namespace FinanceHero
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void create()
+        {
+            string cn = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
+                "AttachDbFilename=|DataDirectory|account.mdf;" +
+                "Integrated Security=True";                     //設為True 指定使用Windows 帳號認證連接資料庫
+            SqlConnection db = new SqlConnection(cn);           //建立連接物件    
+            SqlCommand cmd = new SqlCommand
+                ("SELECT * FROM 記帳", db);
+
+            try
+            {
+                db.Open();                                      //使用Open方法開啟和資料庫的連接
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                string column_name = "";                        //用不到的column標題
+                for (int i = 0; i < dr.FieldCount; i++)         //讀column標題
+                {
+                    column_name += dr.GetName(i) + "  ";
+                }
+
+                Label[] L1 = new Label[30];
+                Label[] L2 = new Label[30];
+                Label[] LD = new Label[30];
+                int index = 0;
+                string dateStr, classStr, desStr, MoneyStr;
+                while (dr.Read())
+                {
+                    for (int i = 0; i < dr.FieldCount; i++)
+                    {
+                        if (i == 1)
+                        {
+                            dateStr = dr[i].ToString();
+                            LD[index] = set_DateLabel_property(15, 155 + index * 50, 370);
+                            this.Homepanel.Controls.Add(LD[index]);
+                            LD[index].Text = " " + dateStr;
+                        }
+                        else if (i == 2)
+                        {
+                            classStr = dr[i].ToString();
+                            L1[index] = set_Label_property(15, 170 + index * 50, 370);
+                            this.Homepanel.Controls.Add(L1[index]);
+                            L1[index].Text = " " + classStr;
+
+                        }
+                        else if (i == 3)
+                        {
+                            desStr = dr[i].ToString();
+                            L1[index].Text += "  " + desStr;
+                        }
+                        else if (i == 4)
+                        {
+                            MoneyStr = dr[i].ToString();
+                            L2[index] = set_Label_property(385, 170 + index * 50, 80);
+                            L2[index].Text += "$" + MoneyStr;
+                            this.Homepanel.Controls.Add(L2[index]);
+
+                            index++;
+                        }
+                    }
+                }
+                db.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private Label set_Label_property(int x, int y, int w)
+        {
+            Label Q = new Label();
+            Q.Width = w;
+            Q.Height = 35;
+            Q.BackColor = Color.Gray;
+            Q.Left = x;
+            Q.Top = y;
+            Q.TextAlign = ContentAlignment.MiddleLeft;
+            Q.Font = new Font("微軟正黑體", 12, FontStyle.Regular);
+
+            return Q;
+        }
+
+        private Label set_DateLabel_property(int x, int y, int w)
+        {
+            Label Q = new Label();
+            Q.Width = w;
+            Q.Height = 15;
+            Q.BackColor = Color.Transparent;
+            Q.Left = x;
+            Q.Top = y;
+            Q.TextAlign = ContentAlignment.MiddleLeft;
+            Q.Font = new Font("Calibri", 10, FontStyle.Regular);
+
+            return Q;
         }
     }
 }

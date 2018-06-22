@@ -109,94 +109,12 @@ namespace FinanceHero
             }
         }
 
-        int load_once = 0;
         private void Addpanel_Paint(object sender, PaintEventArgs e)
         {
             //MessageBox.Show("paint");
-            if (load_once == 0)
-            {
-                create();
-                load_once++;
-            }
+
         }
 
-        private void create()
-        {
-            string cn = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
-                "AttachDbFilename=|DataDirectory|account.mdf;" +
-                "Integrated Security=True";                     //設為True 指定使用Windows 帳號認證連接資料庫
-            SqlConnection db = new SqlConnection(cn);           //建立連接物件    
-            SqlCommand cmd = new SqlCommand
-                ("SELECT * FROM 記帳", db);
-
-            try
-            {
-                db.Open();                                      //使用Open方法開啟和資料庫的連接
-                SqlDataReader dr = cmd.ExecuteReader();
-
-                string column_name = "";                        //用不到的column標題
-                for (int i = 0; i < dr.FieldCount; i++)         //讀column標題
-                {
-                    column_name += dr.GetName(i) + "  ";
-                }
-
-                Label[] L1 = new Label[30];
-                Label[] L2 = new Label[30];
-                int index = 0;
-                string dateStr, classStr, desStr, MoneyStr;
-                while (dr.Read())
-                {
-                    for (int i = 0; i < dr.FieldCount; i++)
-                    {
-                        if (i == 1)
-                        {
-                            dateStr = dr[i].ToString();
-
-                        }
-                        else if (i == 2)
-                        {
-                            classStr = dr[i].ToString();
-                            L1[index] = set_Label_property(20, 444 + index * 40, 222);
-                            this.Addpanel.Controls.Add(L1[index]);
-                            L1[index].Text = classStr;
-
-                        }
-                        else if (i == 3)
-                        {
-                            desStr = dr[i].ToString();
-                            L1[index].Text += "  " + desStr;
-                        }
-                        else if (i == 4)
-                        {
-                            MoneyStr = dr[i].ToString();
-                            L2[index] = set_Label_property(242, 444 + index * 40, 80);
-                            L2[index].Text += "$" + MoneyStr;
-                            this.Addpanel.Controls.Add(L2[index]);
-
-                            index++;
-                        }
-                    }
-                }
-                db.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private Label set_Label_property(int x, int y, int w)
-        {
-            Label Q = new Label();
-            Q.Width = w;
-            Q.Height = 29;
-            Q.BackColor = Color.LightGreen;
-            Q.Left = x;
-            Q.Top = y;
-            Q.TextAlign = ContentAlignment.MiddleLeft;
-            Q.Font = new Font("微軟正黑體", 12, FontStyle.Regular);
-
-            return Q;
-        }
+        
     }
 }
