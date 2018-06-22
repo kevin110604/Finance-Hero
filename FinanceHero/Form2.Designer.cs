@@ -32,14 +32,14 @@
             this.MoneytextBox = new System.Windows.Forms.TextBox();
             this.NTDlabel = new System.Windows.Forms.Label();
             this.Addpanel = new System.Windows.Forms.Panel();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.ClasscomboBox = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Confirmbutton = new System.Windows.Forms.Button();
             this.DescripttextBox = new System.Windows.Forms.TextBox();
             this.Descriptionlabel = new System.Windows.Forms.Label();
             this.classlabel = new System.Windows.Forms.Label();
             this.Timelabel = new System.Windows.Forms.Label();
-            this.ClasscomboBox = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.Toppanel.SuspendLayout();
             this.Addpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -54,7 +54,7 @@
             this.Toppanel.Location = new System.Drawing.Point(0, 0);
             this.Toppanel.Margin = new System.Windows.Forms.Padding(2);
             this.Toppanel.Name = "Toppanel";
-            this.Toppanel.Size = new System.Drawing.Size(343, 46);
+            this.Toppanel.Size = new System.Drawing.Size(358, 46);
             this.Toppanel.TabIndex = 0;
             // 
             // MoneytextBox
@@ -66,7 +66,7 @@
             this.MoneytextBox.Margin = new System.Windows.Forms.Padding(2);
             this.MoneytextBox.Multiline = true;
             this.MoneytextBox.Name = "MoneytextBox";
-            this.MoneytextBox.Size = new System.Drawing.Size(237, 29);
+            this.MoneytextBox.Size = new System.Drawing.Size(224, 29);
             this.MoneytextBox.TabIndex = 8;
             // 
             // NTDlabel
@@ -83,6 +83,7 @@
             // 
             // Addpanel
             // 
+            this.Addpanel.AutoScroll = true;
             this.Addpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(45)))), ((int)(((byte)(60)))));
             this.Addpanel.Controls.Add(this.dateTimePicker1);
             this.Addpanel.Controls.Add(this.ClasscomboBox);
@@ -96,8 +97,43 @@
             this.Addpanel.Location = new System.Drawing.Point(0, 46);
             this.Addpanel.Margin = new System.Windows.Forms.Padding(2);
             this.Addpanel.Name = "Addpanel";
-            this.Addpanel.Size = new System.Drawing.Size(343, 468);
+            this.Addpanel.Size = new System.Drawing.Size(358, 468);
             this.Addpanel.TabIndex = 1;
+            this.Addpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.Addpanel_Paint);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CalendarForeColor = System.Drawing.Color.Gainsboro;
+            this.dateTimePicker1.CalendarMonthBackground = System.Drawing.Color.Gainsboro;
+            this.dateTimePicker1.CalendarTitleBackColor = System.Drawing.Color.Gainsboro;
+            this.dateTimePicker1.CalendarTitleForeColor = System.Drawing.Color.Gainsboro;
+            this.dateTimePicker1.CalendarTrailingForeColor = System.Drawing.Color.Gainsboro;
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(20, 39);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(302, 30);
+            this.dateTimePicker1.TabIndex = 13;
+            // 
+            // ClasscomboBox
+            // 
+            this.ClasscomboBox.BackColor = System.Drawing.Color.Gainsboro;
+            this.ClasscomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ClasscomboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.ClasscomboBox.FormattingEnabled = true;
+            this.ClasscomboBox.Items.AddRange(new object[] {
+            "食",
+            "衣",
+            "住",
+            "行",
+            "育",
+            "樂",
+            "其他",
+            "秘密"});
+            this.ClasscomboBox.Location = new System.Drawing.Point(20, 109);
+            this.ClasscomboBox.Name = "ClasscomboBox";
+            this.ClasscomboBox.Size = new System.Drawing.Size(302, 33);
+            this.ClasscomboBox.TabIndex = 12;
             // 
             // dataGridView1
             // 
@@ -106,7 +142,7 @@
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(316, 143);
+            this.dataGridView1.Size = new System.Drawing.Size(302, 143);
             this.dataGridView1.TabIndex = 11;
             // 
             // Confirmbutton
@@ -130,7 +166,7 @@
             this.DescripttextBox.Margin = new System.Windows.Forms.Padding(2);
             this.DescripttextBox.Multiline = true;
             this.DescripttextBox.Name = "DescripttextBox";
-            this.DescripttextBox.Size = new System.Drawing.Size(317, 29);
+            this.DescripttextBox.Size = new System.Drawing.Size(302, 29);
             this.DescripttextBox.TabIndex = 3;
             // 
             // Descriptionlabel
@@ -169,46 +205,12 @@
             this.Timelabel.TabIndex = 0;
             this.Timelabel.Text = "Time";
             // 
-            // ClasscomboBox
-            // 
-            this.ClasscomboBox.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClasscomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ClasscomboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.ClasscomboBox.FormattingEnabled = true;
-            this.ClasscomboBox.Items.AddRange(new object[] {
-            "食",
-            "衣",
-            "住",
-            "行",
-            "育",
-            "樂",
-            "其他",
-            "秘密"});
-            this.ClasscomboBox.Location = new System.Drawing.Point(20, 109);
-            this.ClasscomboBox.Name = "ClasscomboBox";
-            this.ClasscomboBox.Size = new System.Drawing.Size(317, 33);
-            this.ClasscomboBox.TabIndex = 12;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CalendarForeColor = System.Drawing.Color.Gainsboro;
-            this.dateTimePicker1.CalendarMonthBackground = System.Drawing.Color.Gainsboro;
-            this.dateTimePicker1.CalendarTitleBackColor = System.Drawing.Color.Gainsboro;
-            this.dateTimePicker1.CalendarTitleForeColor = System.Drawing.Color.Gainsboro;
-            this.dateTimePicker1.CalendarTrailingForeColor = System.Drawing.Color.Gainsboro;
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(20, 39);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(317, 30);
-            this.dateTimePicker1.TabIndex = 13;
-            // 
             // AddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(343, 514);
+            this.ClientSize = new System.Drawing.Size(358, 514);
             this.Controls.Add(this.Addpanel);
             this.Controls.Add(this.Toppanel);
             this.Margin = new System.Windows.Forms.Padding(2);
