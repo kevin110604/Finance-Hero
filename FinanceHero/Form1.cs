@@ -227,6 +227,11 @@ namespace FinanceHero
 
         }
 
+        private void Addlabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void alien_levelup()
         {
             AlienLevel++;                                       //怪物升級
