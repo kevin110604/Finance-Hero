@@ -37,6 +37,7 @@ namespace FinanceHero
             if (Homepanel_load_once == 0)
             {
                 create_spend_Label();
+                load_total_spend();
                 Homepanel_load_once++;
             }
         }
@@ -68,6 +69,7 @@ namespace FinanceHero
             Statispanel.Visible = false;
 
             load_shop();
+            GoldenCoinpic.Image = Image.FromFile(@"..\..\Resources\coins (2).png");
         }
 
         private void Herobutton_Click(object sender, EventArgs e)
@@ -90,7 +92,8 @@ namespace FinanceHero
 
             if (only_once < 1)
             {
-                load_chart();
+                load_chart1();
+                load_chart2();
                 only_once++;
             }
         }
@@ -188,6 +191,43 @@ namespace FinanceHero
         {
             AddForm addf = new AddForm();
             addf.Show();
+        }
+
+        int total_spend = 0;
+        private void load_total_spend()
+        {
+            string cn = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
+                "AttachDbFilename=|DataDirectory|account.mdf;" +
+                "Integrated Security=True";                     //設為True 指定使用Windows 帳號認證連接資料庫
+            SqlConnection db = new SqlConnection(cn);           //建立連接物件    
+            SqlCommand cmd = new SqlCommand
+                ("SELECT SUM(money) FROM 記帳", db);
+
+            try
+            {
+                db.Open();                                      //使用Open方法開啟和資料庫的連接
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                string column_name = "";                        //用不到的column標題
+                for (int i = 0; i < dr.FieldCount; i++)         //讀column標題
+                {
+                    column_name += dr.GetName(i) + "  ";
+                }
+                while (dr.Read())
+                {
+                    for (int i = 0; i < dr.FieldCount; i++)
+                    {
+                        total_spend = int.Parse(dr[i].ToString());
+                    }
+                }
+
+                db.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            totalspend.Text += "" + total_spend;
         }
 
         private void create_spend_Label()
@@ -358,7 +398,6 @@ namespace FinanceHero
             /* Next Level */
             SqlCommand cmd2 = new SqlCommand
                 ("SELECT * FROM 飛船 WHERE level = " + (SpaceLevel+1), db);
-
             try
             {
                 db.Open();                                      //使用Open方法開啟和資料庫的連接
@@ -406,9 +445,9 @@ namespace FinanceHero
 
             spacefile_name2 = @"..\..\Resources\" + spacefile_name2;
             NextBuypic.Image = Image.FromFile(spacefile_name2);
-            label1.Text = "" + Space_price2;
+            Nextpricelabel.Text = "" + Space_price2;
             NextLevellabel.Text = "LEVEL" + (SpaceLevel+1);
-            NextATKlabel.Text = "" + HATK2;
+            NextHATKlabel.Text = "" + HATK2;
 
         }
 
@@ -436,9 +475,6 @@ namespace FinanceHero
         /*** Hero ***/
         private void load_game()
         {
-
-
-            /* image */
             string spacefile_name = "";
             string cn2 = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
                 "AttachDbFilename=|DataDirectory|account.mdf;" +
@@ -446,7 +482,6 @@ namespace FinanceHero
             SqlConnection db2 = new SqlConnection(cn2);         //建立連接物件    
             SqlCommand cmd2 = new SqlCommand
                 ("SELECT * FROM 飛船 WHERE level = " + SpaceLevel, db2);
-
             try
             {
                 db2.Open();                                     //使用Open方法開啟和資料庫的連接
@@ -494,14 +529,13 @@ namespace FinanceHero
             Alienpic.SizeMode = PictureBoxSizeMode.StretchImage;
             Spacepic.Image = Image.FromFile(spacefile_name);
             Alienpic.Image = Image.FromFile(@"..\..\Resources\alien.png");
-
         }
 
         int click_count = 0;
         private void Heropanel_MouseDown(object sender, MouseEventArgs e)
         {
             SoundPlayer sp = new SoundPlayer();
-            sp.SoundLocation = @"..\..\Resources\shoot1.wav";
+            sp.SoundLocation = @"..\..\Resources\shoot2.wav";
             sp.Play();
 
             AlienHP -= 10 * SpaceHATK;                            //怪物扣血
@@ -511,6 +545,7 @@ namespace FinanceHero
                 if (AlienLevel < 10)                            //怪物等級上限
                 {
                     alien_levelup();
+                    save_game_records();                        //升級完後更新資料庫遊戲數據
                 }
                 else
                 {
@@ -565,8 +600,10 @@ namespace FinanceHero
             HPlabel.Text = "" + AlienHP;                        //更新怪物血量
         }
 
+
+
         /* Statistical */
-        private void load_chart()
+        private void load_chart1()
         {
             string cn = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
                 "AttachDbFilename=|DataDirectory|account.mdf;" +
@@ -608,8 +645,49 @@ namespace FinanceHero
             }
         }
 
+        private void load_chart2()
+        {
+            string cn = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
+                "AttachDbFilename=|DataDirectory|account.mdf;" +
+                "Integrated Security=True";                     //設為True 指定使用Windows 帳號認證連接資料庫
+            SqlConnection db = new SqlConnection(cn);           //建立連接物件    
+            SqlCommand cmd = new SqlCommand
+                ("SELECT date, SUM(money) FROM 記帳 GROUP BY date", db);
+            try
+            {
+                db.Open();                                      //使用Open方法開啟和資料庫的連接
+                SqlDataReader dr = cmd.ExecuteReader();
 
-        
+                string column_name = "";                        //用不到的column標題
+                for (int i = 0; i < dr.FieldCount; i++)         //讀column標題
+                {
+                    column_name += dr.GetName(i) + "  ";
+                }
+
+                string date_str = "";
+                int money_value = 0;
+                while (dr.Read())
+                {
+                    for (int i = 0; i < dr.FieldCount; i++)
+                    {
+                        if (i % 2 == 0)
+                            date_str = dr[i].ToString();
+                        else
+                            money_value = int.Parse(dr[i].ToString());
+                    }
+                    chart2.Series["Series1"].Points.AddXY(date_str, money_value);
+                }
+
+                db.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
+
 
         private void Addlabel_Click(object sender, EventArgs e)
         {
