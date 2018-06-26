@@ -23,8 +23,8 @@ namespace FinanceHero
             get_account_key();                                  //取得該前最後一筆記帳的key
             account_key++;
 
-            Edit("INSERT INTO 記帳(date,class,description,money,virtualkey) VALUES('" +
-               dateTimePicker1.Text + "'," +
+            Edit("INSERT INTO 記帳(date,class,description,money,virtualkey) VALUES(" +
+               "N" + "'" + dateTimePicker1.Text + "'," +
                "N" + "'" + ClasscomboBox.Text.Replace("'", "''") + "'," +
                "N" + "'" + DescripttextBox.Text.Replace("'", "''") + "'," +
                MoneytextBox.Text + "," +
@@ -109,10 +109,16 @@ namespace FinanceHero
             }
         }
 
+        int once = 0;
         private void Addpanel_Paint(object sender, PaintEventArgs e)
         {
             //MessageBox.Show("paint");
-
+            if (once == 0)
+            {
+                dateTimePicker1.Format = DateTimePickerFormat.Custom;
+                dateTimePicker1.CustomFormat = "yyyy/MM/dd HH:mm:ss";
+                once++;
+            }
         }
 
         

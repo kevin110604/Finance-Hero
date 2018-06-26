@@ -45,6 +45,8 @@ namespace FinanceHero
             Shoppanel.Visible = true;
             Heropanel.Visible = false;
             Statispanel.Visible = false;
+
+            load_shop();
         }
 
         private void Herobutton_Click(object sender, EventArgs e)
@@ -77,6 +79,113 @@ namespace FinanceHero
             AddForm addf = new AddForm();
             addf.Show();
         }
+
+        private void load_shop()
+        {
+            /* game info */
+            string cn = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
+                "AttachDbFilename=|DataDirectory|account.mdf;" +
+                "Integrated Security=True";                     //設為True 指定使用Windows 帳號認證連接資料庫
+            SqlConnection db = new SqlConnection(cn);           //建立連接物件    
+            SqlCommand cmd = new SqlCommand
+                ("SELECT * FROM 遊戲紀錄", db);
+
+            try
+            {
+                db.Open();                                      //使用Open方法開啟和資料庫的連接
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                string column_name = "";                        //用不到的column標題
+                for (int i = 0; i < dr.FieldCount; i++)         //讀column標題
+                {
+                    column_name += dr.GetName(i) + "  ";
+                }
+
+                while (dr.Read())
+                {
+                    for (int i = 0; i < dr.FieldCount; i++)
+                    {
+                        if (i == 3)
+                        {
+                            SpaceLevel = int.Parse(dr[i].ToString());
+                        }
+                        else if (i == 4)
+                        {
+                            SpaceLATK = int.Parse(dr[i].ToString());
+                        }
+                        else if (i == 5)
+                        {
+                            SpaceHATK = int.Parse(dr[i].ToString());
+                        }
+                        else if (i == 6)
+                        {
+                            Coin = int.Parse(dr[i].ToString());
+                        }
+                    }
+                }
+                db.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            /* image */
+            int Space_price = 0;
+            string spacefile_name = "";
+            string cn2 = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
+                "AttachDbFilename=|DataDirectory|account.mdf;" +
+                "Integrated Security=True";                     //設為True 指定使用Windows 帳號認證連接資料庫
+            SqlConnection db2 = new SqlConnection(cn2);         //建立連接物件    
+            SqlCommand cmd2 = new SqlCommand
+                ("SELECT * FROM 飛船 WHERE level = " + (SpaceLevel+1), db2);
+
+            try
+            {
+                db2.Open();                                     //使用Open方法開啟和資料庫的連接
+                SqlDataReader dr = cmd2.ExecuteReader();
+
+                string column_name = "";                        //用不到的column標題
+                for (int i = 0; i < dr.FieldCount; i++)         //讀column標題
+                {
+                    column_name += dr.GetName(i) + "  ";
+                }
+
+                while (dr.Read())
+                {
+                    for (int i = 0; i < dr.FieldCount; i++)
+                    {
+                        if (i == 1)
+                        {
+                            //AlienLevel = int.Parse(dr[i].ToString());
+                        }
+                        else if (i == 2)
+                        {
+                            //AlienHP = int.Parse(dr[i].ToString());
+                        }
+                        else if (i == 3)
+                        {
+                            Space_price = int.Parse(dr[i].ToString());
+                        }
+                        else if (i == 4)
+                        {
+                            spacefile_name = dr[i].ToString();
+                        }
+                    }
+                }
+                db2.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            spacefile_name = @"..\..\Resources\" + spacefile_name;
+            NextBuypic.Image = Image.FromFile(spacefile_name);
+            label1.Text = "" + Space_price;
+        }
+
+
 
         private void load_chart()
         {
@@ -219,10 +328,61 @@ namespace FinanceHero
                 MessageBox.Show(ex.Message);
             }
 
+            /* image */
+            string spacefile_name="";
+            string cn2 = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
+                "AttachDbFilename=|DataDirectory|account.mdf;" +
+                "Integrated Security=True";                     //設為True 指定使用Windows 帳號認證連接資料庫
+            SqlConnection db2 = new SqlConnection(cn2);         //建立連接物件    
+            SqlCommand cmd2 = new SqlCommand
+                ("SELECT * FROM 飛船 WHERE level = " + SpaceLevel, db2);
+
+            try
+            {
+                db2.Open();                                     //使用Open方法開啟和資料庫的連接
+                SqlDataReader dr = cmd2.ExecuteReader();
+
+                string column_name = "";                        //用不到的column標題
+                for (int i = 0; i < dr.FieldCount; i++)         //讀column標題
+                {
+                    column_name += dr.GetName(i) + "  ";
+                }
+
+                while (dr.Read())
+                {
+                    for (int i = 0; i < dr.FieldCount; i++)
+                    {
+                        if (i == 1)
+                        {
+                            //AlienLevel = int.Parse(dr[i].ToString());
+                        }
+                        else if (i == 2)
+                        {
+                            //AlienHP = int.Parse(dr[i].ToString());
+                        }
+                        else if (i == 3)
+                        {
+                            //SpaceLevel = int.Parse(dr[i].ToString());
+                        }
+                        else if (i == 4)
+                        {
+                            spacefile_name = dr[i].ToString();
+                        }
+                    }
+                }
+                db2.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            
+            spacefile_name = @"..\..\Resources\" + spacefile_name;
             HPlabel.Text = "" + AlienHP;
             Spacepic.SizeMode = PictureBoxSizeMode.StretchImage;
             Alienpic.SizeMode = PictureBoxSizeMode.StretchImage;
-            Spacepic.Image = Image.FromFile(@"..\..\Resources\astronaut-with-a-flag.png");
+            Spacepic.Image = Image.FromFile(spacefile_name);
             Alienpic.Image = Image.FromFile(@"..\..\Resources\alien.png");
 
         }
@@ -271,6 +431,11 @@ namespace FinanceHero
             HPlabel.Text = "" + AlienHP;                        //更新怪物血量
         }
 
+        private void Confirmbutton_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void save_game_records()
         {
             string cn = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
@@ -304,7 +469,7 @@ namespace FinanceHero
                 "Integrated Security=True";                     //設為True 指定使用Windows 帳號認證連接資料庫
             SqlConnection db = new SqlConnection(cn);           //建立連接物件    
             SqlCommand cmd = new SqlCommand
-                ("SELECT * FROM 記帳", db);
+                ("SELECT * FROM 記帳 ORDER BY date DESC", db);
 
             try
             {
@@ -349,7 +514,7 @@ namespace FinanceHero
                         else if (i == 4)
                         {
                             MoneyStr = dr[i].ToString();
-                            L2[index] = set_Label_property(385, 170 + index * 50, 80);
+                            L2[index] = set_MoneyLabel_property(385, 170 + index * 50, 80);
                             L2[index].Text += "$" + MoneyStr;
                             this.Homepanel.Controls.Add(L2[index]);
 
@@ -379,12 +544,27 @@ namespace FinanceHero
             return Q;
         }
 
+        private Label set_MoneyLabel_property(int x, int y, int w)
+        {
+            Label Q = new Label();
+            Q.Width = w;
+            Q.Height = 35;
+            Q.BackColor = Color.Gray;
+            Q.Left = x;
+            Q.Top = y;
+            Q.TextAlign = ContentAlignment.MiddleRight;
+            Q.Font = new Font("微軟正黑體", 12, FontStyle.Regular);
+
+            return Q;
+        }
+
         private Label set_DateLabel_property(int x, int y, int w)
         {
             Label Q = new Label();
             Q.Width = w;
             Q.Height = 15;
             Q.BackColor = Color.Transparent;
+            Q.ForeColor = Color.White;
             Q.Left = x;
             Q.Top = y;
             Q.TextAlign = ContentAlignment.MiddleLeft;
