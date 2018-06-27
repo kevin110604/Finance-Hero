@@ -19,6 +19,18 @@ namespace FinanceHero
             InitializeComponent();
         }
 
+        int Addpanel_load_once = 0;
+        private void Addpanel_Paint(object sender, PaintEventArgs e)
+        {
+            if (Addpanel_load_once == 0)
+            {
+                dateTimePicker1.Format = DateTimePickerFormat.Custom;
+                dateTimePicker1.CustomFormat = "yyyy/MM/dd HH:mm:ss";
+                load_info();
+                Addpanel_load_once++;
+            }
+        }
+
         int index = Home.select_index;
         int virtualkey = 0;
         private void Confirmbutton_Click(object sender, EventArgs e)
@@ -46,18 +58,6 @@ namespace FinanceHero
                 MessageBox.Show(ex.Message);
             }
             label1.Text = "OK!";
-        }
-
-        int Addpanel_load_once = 0;
-        private void Addpanel_Paint(object sender, PaintEventArgs e)
-        {
-            if (Addpanel_load_once == 0)
-            {
-                dateTimePicker1.Format = DateTimePickerFormat.Custom;
-                dateTimePicker1.CustomFormat = "yyyy/MM/dd HH:mm:ss";
-                load_info();
-                Addpanel_load_once++;
-            }
         }
 
         private void load_info()

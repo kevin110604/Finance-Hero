@@ -37,6 +37,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.Toppanel = new System.Windows.Forms.Panel();
             this.coinlabel = new System.Windows.Forms.Label();
+            this.Coinicon = new System.Windows.Forms.PictureBox();
             this.label_title = new System.Windows.Forms.Label();
             this.Homepanel = new System.Windows.Forms.Panel();
             this.Addlabel = new System.Windows.Forms.Label();
@@ -51,46 +52,45 @@
             this.Statisbutton = new System.Windows.Forms.Button();
             this.Shoppanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.GoldenCoinpic = new System.Windows.Forms.PictureBox();
             this.NowATKlabel = new System.Windows.Forms.Label();
             this.NowLevellabel = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.Nowpic = new System.Windows.Forms.PictureBox();
             this.Nextpricelabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.NextLevellabel = new System.Windows.Forms.Label();
             this.NextHATKlabel = new System.Windows.Forms.Label();
             this.Buybutton = new System.Windows.Forms.Button();
+            this.NextBuypic = new System.Windows.Forms.PictureBox();
             this.Shoplabel = new System.Windows.Forms.Label();
             this.Statispanel = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Chartlabel = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Statislabel = new System.Windows.Forms.Label();
-            this.GoldenCoinpic = new System.Windows.Forms.PictureBox();
-            this.Nowpic = new System.Windows.Forms.PictureBox();
-            this.NextBuypic = new System.Windows.Forms.PictureBox();
             this.Heropanel = new System.Windows.Forms.Panel();
             this.HPlabel = new System.Windows.Forms.Label();
             this.Alienpic = new System.Windows.Forms.PictureBox();
             this.Spacepic = new System.Windows.Forms.PictureBox();
             this.Herolabel = new System.Windows.Forms.Label();
-            this.Coinicon = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.Toppanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Coinicon)).BeginInit();
             this.Homepanel.SuspendLayout();
             this.BottomPanel.SuspendLayout();
             this.Shoppanel.SuspendLayout();
-            this.Statispanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GoldenCoinpic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Nowpic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NextBuypic)).BeginInit();
+            this.Statispanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.Heropanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Alienpic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Spacepic)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Coinicon)).BeginInit();
             this.SuspendLayout();
             // 
             // Toppanel
@@ -118,6 +118,17 @@
             this.coinlabel.Size = new System.Drawing.Size(77, 24);
             this.coinlabel.TabIndex = 2;
             this.coinlabel.Text = "9527";
+            // 
+            // Coinicon
+            // 
+            this.Coinicon.Image = global::FinanceHero.Properties.Resources.coins__3_;
+            this.Coinicon.Location = new System.Drawing.Point(316, 7);
+            this.Coinicon.Margin = new System.Windows.Forms.Padding(2);
+            this.Coinicon.Name = "Coinicon";
+            this.Coinicon.Size = new System.Drawing.Size(40, 38);
+            this.Coinicon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Coinicon.TabIndex = 1;
+            this.Coinicon.TabStop = false;
             // 
             // label_title
             // 
@@ -326,6 +337,15 @@
             this.label2.TabIndex = 19;
             this.label2.Text = "You";
             // 
+            // GoldenCoinpic
+            // 
+            this.GoldenCoinpic.Location = new System.Drawing.Point(246, 318);
+            this.GoldenCoinpic.Name = "GoldenCoinpic";
+            this.GoldenCoinpic.Size = new System.Drawing.Size(23, 23);
+            this.GoldenCoinpic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.GoldenCoinpic.TabIndex = 18;
+            this.GoldenCoinpic.TabStop = false;
+            // 
             // NowATKlabel
             // 
             this.NowATKlabel.AutoSize = true;
@@ -355,6 +375,15 @@
             this.label6.Size = new System.Drawing.Size(38, 13);
             this.label6.TabIndex = 14;
             this.label6.Text = "ATK:";
+            // 
+            // Nowpic
+            // 
+            this.Nowpic.Location = new System.Drawing.Point(428, 32);
+            this.Nowpic.Name = "Nowpic";
+            this.Nowpic.Size = new System.Drawing.Size(70, 70);
+            this.Nowpic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Nowpic.TabIndex = 13;
+            this.Nowpic.TabStop = false;
             // 
             // Nextpricelabel
             // 
@@ -418,6 +447,15 @@
             this.Buybutton.UseVisualStyleBackColor = true;
             this.Buybutton.Click += new System.EventHandler(this.Buybutton_Click);
             // 
+            // NextBuypic
+            // 
+            this.NextBuypic.Location = new System.Drawing.Point(150, 61);
+            this.NextBuypic.Name = "NextBuypic";
+            this.NextBuypic.Size = new System.Drawing.Size(200, 200);
+            this.NextBuypic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.NextBuypic.TabIndex = 1;
+            this.NextBuypic.TabStop = false;
+            // 
             // Shoplabel
             // 
             this.Shoplabel.AutoSize = true;
@@ -446,6 +484,26 @@
             this.Statispanel.Size = new System.Drawing.Size(512, 396);
             this.Statispanel.TabIndex = 5;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label5.Location = new System.Drawing.Point(12, 464);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(138, 21);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "本月每一日之花費";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label1.Location = new System.Drawing.Point(12, 110);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(122, 21);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "本月各項目支出";
+            // 
             // chart2
             // 
             chartArea3.Name = "ChartArea1";
@@ -461,7 +519,7 @@
             series3.Legend = "Legend1";
             series3.Name = "Series1";
             this.chart2.Series.Add(series3);
-            this.chart2.Size = new System.Drawing.Size(450, 433);
+            this.chart2.Size = new System.Drawing.Size(450, 349);
             this.chart2.TabIndex = 15;
             this.chart2.Text = "chart2";
             // 
@@ -510,33 +568,6 @@
             this.Statislabel.Size = new System.Drawing.Size(255, 37);
             this.Statislabel.TabIndex = 0;
             this.Statislabel.Text = "Statistical";
-            // 
-            // GoldenCoinpic
-            // 
-            this.GoldenCoinpic.Location = new System.Drawing.Point(246, 318);
-            this.GoldenCoinpic.Name = "GoldenCoinpic";
-            this.GoldenCoinpic.Size = new System.Drawing.Size(23, 23);
-            this.GoldenCoinpic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.GoldenCoinpic.TabIndex = 18;
-            this.GoldenCoinpic.TabStop = false;
-            // 
-            // Nowpic
-            // 
-            this.Nowpic.Location = new System.Drawing.Point(428, 32);
-            this.Nowpic.Name = "Nowpic";
-            this.Nowpic.Size = new System.Drawing.Size(70, 70);
-            this.Nowpic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Nowpic.TabIndex = 13;
-            this.Nowpic.TabStop = false;
-            // 
-            // NextBuypic
-            // 
-            this.NextBuypic.Location = new System.Drawing.Point(150, 61);
-            this.NextBuypic.Name = "NextBuypic";
-            this.NextBuypic.Size = new System.Drawing.Size(200, 200);
-            this.NextBuypic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.NextBuypic.TabIndex = 1;
-            this.NextBuypic.TabStop = false;
             // 
             // Heropanel
             // 
@@ -595,37 +626,6 @@
             this.Herolabel.TabIndex = 0;
             this.Herolabel.Text = "Hero";
             // 
-            // Coinicon
-            // 
-            this.Coinicon.Image = global::FinanceHero.Properties.Resources.coins__3_;
-            this.Coinicon.Location = new System.Drawing.Point(316, 7);
-            this.Coinicon.Margin = new System.Windows.Forms.Padding(2);
-            this.Coinicon.Name = "Coinicon";
-            this.Coinicon.Size = new System.Drawing.Size(40, 38);
-            this.Coinicon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Coinicon.TabIndex = 1;
-            this.Coinicon.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label1.Location = new System.Drawing.Point(12, 110);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 21);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "本月各項目支出";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label5.Location = new System.Drawing.Point(12, 464);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(138, 21);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "本月每一日之花費";
-            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -643,23 +643,23 @@
             this.Text = "Finance Hero";
             this.Toppanel.ResumeLayout(false);
             this.Toppanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Coinicon)).EndInit();
             this.Homepanel.ResumeLayout(false);
             this.Homepanel.PerformLayout();
             this.BottomPanel.ResumeLayout(false);
             this.Shoppanel.ResumeLayout(false);
             this.Shoppanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GoldenCoinpic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Nowpic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NextBuypic)).EndInit();
             this.Statispanel.ResumeLayout(false);
             this.Statispanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GoldenCoinpic)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Nowpic)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NextBuypic)).EndInit();
             this.Heropanel.ResumeLayout(false);
             this.Heropanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Alienpic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Spacepic)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Coinicon)).EndInit();
             this.ResumeLayout(false);
 
         }

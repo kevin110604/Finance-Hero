@@ -505,11 +505,6 @@ namespace FinanceHero
             }
         }
 
-        private void SpaceShip_levelup()
-        {
-
-        }
-
         private void Addlabel_MouseClick(object sender, MouseEventArgs e)
         {
 

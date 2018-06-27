@@ -17,7 +17,19 @@ namespace FinanceHero
         {
             InitializeComponent();
         }
-       
+
+        int once = 0;
+        private void Addpanel_Paint(object sender, PaintEventArgs e)
+        {
+            //MessageBox.Show("paint");
+            if (once == 0)
+            {
+                dateTimePicker1.Format = DateTimePickerFormat.Custom;
+                dateTimePicker1.CustomFormat = "yyyy/MM/dd HH:mm:ss";
+                once++;
+            }
+        }
+
         private void Confirmbutton_Click(object sender, EventArgs e)
         {
             get_account_key();                                  //取得該前最後一筆記帳的key
@@ -108,16 +120,5 @@ namespace FinanceHero
             }
         }
 
-        int once = 0;
-        private void Addpanel_Paint(object sender, PaintEventArgs e)
-        {
-            //MessageBox.Show("paint");
-            if (once == 0)
-            {
-                dateTimePicker1.Format = DateTimePickerFormat.Custom;
-                dateTimePicker1.CustomFormat = "yyyy/MM/dd HH:mm:ss";
-                once++;
-            }
-        }
     }
 }
