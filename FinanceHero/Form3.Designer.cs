@@ -1,6 +1,6 @@
 ﻿namespace FinanceHero
 {
-    partial class AddForm
+    partial class Form3
     {
         /// <summary>
         /// Required designer variable.
@@ -28,34 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Toppanel = new System.Windows.Forms.Panel();
             this.MoneytextBox = new System.Windows.Forms.TextBox();
             this.NTDlabel = new System.Windows.Forms.Label();
             this.Addpanel = new System.Windows.Forms.Panel();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.ClasscomboBox = new System.Windows.Forms.ComboBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Confirmbutton = new System.Windows.Forms.Button();
             this.DescripttextBox = new System.Windows.Forms.TextBox();
             this.Descriptionlabel = new System.Windows.Forms.Label();
             this.classlabel = new System.Windows.Forms.Label();
             this.Timelabel = new System.Windows.Forms.Label();
-            this.Toppanel.SuspendLayout();
+            this.Toppanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.Addpanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.Toppanel.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // Toppanel
-            // 
-            this.Toppanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(150)))), ((int)(((byte)(227)))));
-            this.Toppanel.Controls.Add(this.MoneytextBox);
-            this.Toppanel.Controls.Add(this.NTDlabel);
-            this.Toppanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Toppanel.Location = new System.Drawing.Point(0, 0);
-            this.Toppanel.Margin = new System.Windows.Forms.Padding(2);
-            this.Toppanel.Name = "Toppanel";
-            this.Toppanel.Size = new System.Drawing.Size(358, 46);
-            this.Toppanel.TabIndex = 0;
             // 
             // MoneytextBox
             // 
@@ -84,9 +71,9 @@
             // Addpanel
             // 
             this.Addpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(45)))), ((int)(((byte)(60)))));
+            this.Addpanel.Controls.Add(this.label1);
             this.Addpanel.Controls.Add(this.dateTimePicker1);
             this.Addpanel.Controls.Add(this.ClasscomboBox);
-            this.Addpanel.Controls.Add(this.dataGridView1);
             this.Addpanel.Controls.Add(this.Confirmbutton);
             this.Addpanel.Controls.Add(this.DescripttextBox);
             this.Addpanel.Controls.Add(this.Descriptionlabel);
@@ -96,9 +83,8 @@
             this.Addpanel.Location = new System.Drawing.Point(0, 46);
             this.Addpanel.Margin = new System.Windows.Forms.Padding(2);
             this.Addpanel.Name = "Addpanel";
-            this.Addpanel.Size = new System.Drawing.Size(358, 468);
-            this.Addpanel.TabIndex = 1;
-            this.Addpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.Addpanel_Paint);
+            this.Addpanel.Size = new System.Drawing.Size(358, 299);
+            this.Addpanel.TabIndex = 3;
             // 
             // dateTimePicker1
             // 
@@ -134,16 +120,6 @@
             this.ClasscomboBox.Size = new System.Drawing.Size(318, 33);
             this.ClasscomboBox.TabIndex = 12;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(20, 295);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(318, 143);
-            this.dataGridView1.TabIndex = 11;
-            // 
             // Confirmbutton
             // 
             this.Confirmbutton.Font = new System.Drawing.Font("Good Times Rg", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -152,7 +128,7 @@
             this.Confirmbutton.Name = "Confirmbutton";
             this.Confirmbutton.Size = new System.Drawing.Size(166, 29);
             this.Confirmbutton.TabIndex = 6;
-            this.Confirmbutton.Text = "Confirm";
+            this.Confirmbutton.Text = "Modify";
             this.Confirmbutton.UseVisualStyleBackColor = true;
             this.Confirmbutton.Click += new System.EventHandler(this.Confirmbutton_Click);
             // 
@@ -204,39 +180,58 @@
             this.Timelabel.TabIndex = 0;
             this.Timelabel.Text = "Time";
             // 
-            // AddForm
+            // Toppanel
+            // 
+            this.Toppanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(150)))), ((int)(((byte)(227)))));
+            this.Toppanel.Controls.Add(this.MoneytextBox);
+            this.Toppanel.Controls.Add(this.NTDlabel);
+            this.Toppanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Toppanel.Location = new System.Drawing.Point(0, 0);
+            this.Toppanel.Margin = new System.Windows.Forms.Padding(2);
+            this.Toppanel.Name = "Toppanel";
+            this.Toppanel.Size = new System.Drawing.Size(358, 46);
+            this.Toppanel.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Good Times Rg", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(272, 262);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 16);
+            this.label1.TabIndex = 14;
+            // 
+            // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(358, 514);
+            this.ClientSize = new System.Drawing.Size(358, 345);
             this.Controls.Add(this.Addpanel);
             this.Controls.Add(this.Toppanel);
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "AddForm";
-            this.Text = "Add";
-            this.Toppanel.ResumeLayout(false);
-            this.Toppanel.PerformLayout();
+            this.Name = "Form3";
+            this.Text = "Form3";
             this.Addpanel.ResumeLayout(false);
             this.Addpanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Toppanel.ResumeLayout(false);
+            this.Toppanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel Toppanel;
+        private System.Windows.Forms.TextBox MoneytextBox;
+        private System.Windows.Forms.Label NTDlabel;
         private System.Windows.Forms.Panel Addpanel;
-        private System.Windows.Forms.Label classlabel;
-        private System.Windows.Forms.Label Timelabel;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ComboBox ClasscomboBox;
+        private System.Windows.Forms.Button Confirmbutton;
         private System.Windows.Forms.TextBox DescripttextBox;
         private System.Windows.Forms.Label Descriptionlabel;
-        private System.Windows.Forms.Label NTDlabel;
-        private System.Windows.Forms.Button Confirmbutton;
-        private System.Windows.Forms.TextBox MoneytextBox;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ComboBox ClasscomboBox;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label classlabel;
+        private System.Windows.Forms.Label Timelabel;
+        private System.Windows.Forms.Panel Toppanel;
+        private System.Windows.Forms.Label label1;
     }
 }

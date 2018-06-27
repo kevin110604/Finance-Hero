@@ -120,7 +120,5 @@ namespace FinanceHero
                 once++;
             }
         }
-
-        
     }
 }

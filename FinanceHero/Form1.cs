@@ -171,7 +171,6 @@ namespace FinanceHero
                 ", SpaceLATK = " + SpaceLATK +
                 ", SpaceHATK = " + SpaceHATK +
                 ", Coin = " + Coin + "WHERE virtualkey = 1", db);
-
             try
             {
                 db.Open();                                      //使用Open方法開啟和資料庫的連接
@@ -190,7 +189,16 @@ namespace FinanceHero
         private void Addbutton_Click(object sender, EventArgs e)
         {
             AddForm addf = new AddForm();
-            addf.Show();
+            addf.ShowDialog();
+
+            for (int i=0; i<30; i++)
+            {
+                Homepanel.Controls.Remove(L1[i]);
+                Homepanel.Controls.Remove(L2[i]);
+                Homepanel.Controls.Remove(LD[i]);
+            }
+            totalspend.Text = "NT$";
+            Homepanel_load_once = 0;                            //歸零讓panel重新load一次
         }
 
         int total_spend = 0;
@@ -230,6 +238,10 @@ namespace FinanceHero
             totalspend.Text += "" + total_spend;
         }
 
+        Label[] L1 = new Label[30];
+        Label[] L2 = new Label[30];
+        Label[] LD = new Label[30];
+        public static int[] virtualkey = new int[30];
         private void create_spend_Label()
         {
             string cn = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
@@ -250,16 +262,18 @@ namespace FinanceHero
                     column_name += dr.GetName(i) + "  ";
                 }
 
-                Label[] L1 = new Label[30];
-                Label[] L2 = new Label[30];
-                Label[] LD = new Label[30];
+                
                 int index = 0;
                 string dateStr, classStr, desStr, MoneyStr;
                 while (dr.Read())
                 {
                     for (int i = 0; i < dr.FieldCount; i++)
                     {
-                        if (i == 1)
+                        if (i == 0)
+                        {
+                            virtualkey[index] = int.Parse(dr[i].ToString());
+                        }
+                        else if (i == 1)
                         {
                             dateStr = dr[i].ToString();
                             LD[index] = set_DateLabel_property(15, 155 + index * 50, 370);
@@ -270,7 +284,11 @@ namespace FinanceHero
                         {
                             classStr = dr[i].ToString();
                             L1[index] = set_Label_property(15, 170 + index * 50, 370);
+                            L1[index].Tag = index;
+                            
                             Homepanel.Controls.Add(L1[index]);
+                            
+                            L1[index].MouseClick += new MouseEventHandler(SpendLabel_MouseClick);
                             L1[index].Text = " " + classStr;
 
                         }
@@ -339,6 +357,25 @@ namespace FinanceHero
             Q.Font = new Font("Calibri", 10, FontStyle.Regular);
 
             return Q;
+        }
+
+        public static int select_index;
+        protected void SpendLabel_MouseClick(object sender, MouseEventArgs e)
+        {
+            Label Q = (Label)sender;
+            select_index = (int)Q.Tag;
+            //MessageBox.Show("y=" + e.Y + "Tag=" + Q.Tag + "virtualkey=" + virtualkey[(int)Q.Tag]);
+
+            Form3 f3 = new Form3();
+            f3.ShowDialog();
+            for (int i = 0; i < 30; i++)
+            {
+                Homepanel.Controls.Remove(L1[i]);
+                Homepanel.Controls.Remove(L2[i]);
+                Homepanel.Controls.Remove(LD[i]);
+            }
+            totalspend.Text = "NT$";
+            Homepanel_load_once = 0;                            //歸零讓panel重新load一次
         }
 
 
@@ -468,6 +505,11 @@ namespace FinanceHero
         }
 
         private void SpaceShip_levelup()
+        {
+
+        }
+
+        private void Addlabel_MouseClick(object sender, MouseEventArgs e)
         {
 
         }
