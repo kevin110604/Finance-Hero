@@ -127,8 +127,8 @@
             "行",
             "育",
             "樂",
-            "其他",
-            "秘密"});
+            "秘",
+            "它"});
             this.ClasscomboBox.Location = new System.Drawing.Point(20, 109);
             this.ClasscomboBox.Name = "ClasscomboBox";
             this.ClasscomboBox.Size = new System.Drawing.Size(318, 33);

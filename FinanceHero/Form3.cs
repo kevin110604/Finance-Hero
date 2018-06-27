@@ -47,5 +47,67 @@ namespace FinanceHero
             }
             label1.Text = "OK!";
         }
+
+        int Addpanel_load_once = 0;
+        private void Addpanel_Paint(object sender, PaintEventArgs e)
+        {
+            if (Addpanel_load_once == 0)
+            {
+                dateTimePicker1.Format = DateTimePickerFormat.Custom;
+                dateTimePicker1.CustomFormat = "yyyy/MM/dd HH:mm:ss";
+                load_info();
+                Addpanel_load_once++;
+            }
+        }
+
+        private void load_info()
+        {
+            virtualkey = Home.virtualkey[index];
+
+            string cn = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
+                "AttachDbFilename=|DataDirectory|account.mdf;" +
+                "Integrated Security=True";                     //設為True 指定使用Windows 帳號認證連接資料庫
+            SqlConnection db = new SqlConnection(cn);           //建立連接物件    
+            SqlCommand cmd = new SqlCommand
+                ("SELECT * FROM 記帳 WHERE virtualkey = " + virtualkey, db);
+            try
+            {
+                db.Open();                                      //使用Open方法開啟和資料庫的連接
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                string column_name = "";                        //用不到的column標題
+                for (int i = 0; i < dr.FieldCount; i++)         //讀column標題
+                {
+                    column_name += dr.GetName(i) + "  ";
+                }
+                while (dr.Read())
+                {
+                    for (int i = 0; i < dr.FieldCount; i++)
+                    {
+                        if (i == 1)
+                        {
+                            dateTimePicker1.Text = dr[i].ToString();
+                        }
+                        else if (i == 2)
+                        {
+                            ClasscomboBox.Text = dr[i].ToString();
+                        }
+                        else if (i == 3)
+                        {
+                            DescripttextBox.Text = dr[i].ToString();
+                        }
+                        else if (i == 4)
+                        {
+                            MoneytextBox.Text = dr[i].ToString();
+                        }
+                    }
+                }
+                db.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

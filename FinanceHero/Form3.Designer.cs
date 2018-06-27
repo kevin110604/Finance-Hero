@@ -85,6 +85,7 @@
             this.Addpanel.Name = "Addpanel";
             this.Addpanel.Size = new System.Drawing.Size(358, 299);
             this.Addpanel.TabIndex = 3;
+            this.Addpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.Addpanel_Paint);
             // 
             // dateTimePicker1
             // 

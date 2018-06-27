@@ -190,7 +190,6 @@ namespace FinanceHero
         {
             AddForm addf = new AddForm();
             addf.ShowDialog();
-
             for (int i=0; i<30; i++)
             {
                 Homepanel.Controls.Remove(L1[i]);
@@ -199,6 +198,9 @@ namespace FinanceHero
             }
             totalspend.Text = "NT$";
             Homepanel_load_once = 0;                            //歸零讓panel重新load一次
+            Coin += 100;                                        //每記帳一次加金幣100
+            save_game_records();
+            coinlabel.Text = "" + Coin;
         }
 
         int total_spend = 0;
@@ -209,7 +211,7 @@ namespace FinanceHero
                 "Integrated Security=True";                     //設為True 指定使用Windows 帳號認證連接資料庫
             SqlConnection db = new SqlConnection(cn);           //建立連接物件    
             SqlCommand cmd = new SqlCommand
-                ("SELECT SUM(money) FROM 記帳", db);
+                ("SELECT SUM(money) FROM 記帳 WHERE datepart(MM, date) = datepart(MM, getdate())", db);
 
             try
             {
@@ -249,7 +251,7 @@ namespace FinanceHero
                 "Integrated Security=True";                     //設為True 指定使用Windows 帳號認證連接資料庫
             SqlConnection db = new SqlConnection(cn);           //建立連接物件    
             SqlCommand cmd = new SqlCommand
-                ("SELECT * FROM 記帳 ORDER BY date DESC", db);
+                ("SELECT TOP 30 * FROM 記帳 ORDER BY date DESC", db);
 
             try
             {
@@ -339,7 +341,7 @@ namespace FinanceHero
             Q.Left = x;
             Q.Top = y;
             Q.TextAlign = ContentAlignment.MiddleRight;
-            Q.Font = new Font("微軟正黑體", 12, FontStyle.Regular);
+            Q.Font = new Font("Calibri", 12, FontStyle.Regular);
 
             return Q;
         }
@@ -485,7 +487,6 @@ namespace FinanceHero
             Nextpricelabel.Text = "" + Space_price2;
             NextLevellabel.Text = "LEVEL" + (SpaceLevel+1);
             NextHATKlabel.Text = "" + HATK2;
-
         }
 
         private void Buybutton_Click(object sender, EventArgs e)
@@ -694,7 +695,7 @@ namespace FinanceHero
                 "Integrated Security=True";                     //設為True 指定使用Windows 帳號認證連接資料庫
             SqlConnection db = new SqlConnection(cn);           //建立連接物件    
             SqlCommand cmd = new SqlCommand
-                ("SELECT datepart(dd, date), SUM(money) FROM 記帳 WHERE datepart(MM, date) = datepart(MM, getdate()) GROUP BY date ", db);
+                ("SELECT datepart(dd, date), SUM(money) FROM 記帳 WHERE datepart(MM, date) = datepart(MM, getdate()) GROUP BY datepart(dd, date)", db);
             try
             {
                 db.Open();                                      //使用Open方法開啟和資料庫的連接
@@ -726,14 +727,6 @@ namespace FinanceHero
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-
-
-
-        private void Addlabel_Click(object sender, EventArgs e)
-        {
-
         }
         
     }
