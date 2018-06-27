@@ -610,7 +610,7 @@ namespace FinanceHero
                 "Integrated Security=True";                     //設為True 指定使用Windows 帳號認證連接資料庫
             SqlConnection db = new SqlConnection(cn);           //建立連接物件    
             SqlCommand cmd = new SqlCommand
-                ("SELECT class, SUM(money) FROM 記帳 GROUP BY class", db);
+                ("SELECT class, SUM(money) FROM 記帳 WHERE datepart(MM, date) = datepart(MM, getdate()) GROUP BY class", db);
 
             try
             {
@@ -644,7 +644,7 @@ namespace FinanceHero
                 MessageBox.Show(ex.Message);
             }
         }
-
+        
         private void load_chart2()
         {
             string cn = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
@@ -652,7 +652,7 @@ namespace FinanceHero
                 "Integrated Security=True";                     //設為True 指定使用Windows 帳號認證連接資料庫
             SqlConnection db = new SqlConnection(cn);           //建立連接物件    
             SqlCommand cmd = new SqlCommand
-                ("SELECT date, SUM(money) FROM 記帳 GROUP BY date", db);
+                ("SELECT datepart(dd, date), SUM(money) FROM 記帳 WHERE datepart(MM, date) = datepart(MM, getdate()) GROUP BY date ", db);
             try
             {
                 db.Open();                                      //使用Open方法開啟和資料庫的連接
@@ -693,34 +693,6 @@ namespace FinanceHero
         {
 
         }
-
-        
-
-        
-
-        private void save_coin()
-        {
-            string cn = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
-                "AttachDbFilename=|DataDirectory|account.mdf;" +
-                "Integrated Security=True";                     //設為True 指定使用Windows 帳號認證連接資料庫
-            SqlConnection db = new SqlConnection(cn);           //建立連接物件    
-            SqlCommand cmd = new SqlCommand
-                ("UPDATE 遊戲紀錄 SET Coin = " + Coin + "WHERE virtualkey = 1", db);
-
-            try
-            {
-                db.Open();                                      //使用Open方法開啟和資料庫的連接
-                cmd.ExecuteNonQuery();
-                db.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        
-
         
     }
 }
