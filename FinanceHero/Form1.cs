@@ -82,7 +82,6 @@ namespace FinanceHero
             load_game();
         }
 
-        int only_once = 0;
         private void Statisbutton_Click(object sender, EventArgs e)
         {
             Homepanel.Visible = false;
@@ -90,13 +89,13 @@ namespace FinanceHero
             Heropanel.Visible = false;
             Statispanel.Visible = true;
 
-            if (only_once < 1)
-            {
-                load_chart1();
-                load_chart2();
-                only_once++;
-            }
+            chart1.Series["Series1"].Points.Clear();            //清除原本的資料點
+            chart2.Series["Series1"].Points.Clear();
+            load_chart1();
+            load_chart2();
         }
+
+
 
         /*** Top ***/
         int AlienLevel, AlienHP, SpaceLevel, SpaceLATK, SpaceHATK, Coin;
@@ -505,10 +504,7 @@ namespace FinanceHero
             }
         }
 
-        private void Addlabel_MouseClick(object sender, MouseEventArgs e)
-        {
 
-        }
 
         /*** Hero ***/
         private void load_game()
@@ -549,7 +545,7 @@ namespace FinanceHero
                         }
                         else if (i == 4)
                         {
-                            spacefile_name = dr[i].ToString();
+                            spacefile_name = dr[i].ToString();  //讀飛船檔名
                         }
                     }
                 }
@@ -609,7 +605,6 @@ namespace FinanceHero
             SqlConnection db = new SqlConnection(cn);           //建立連接物件    
             SqlCommand cmd = new SqlCommand
                 ("SELECT hp FROM 怪血量 WHERE level = " + AlienLevel, db);
-
             try
             {
                 db.Open();                                      //使用Open方法開啟和資料庫的連接
@@ -620,7 +615,6 @@ namespace FinanceHero
                 {
                     column_name += dr.GetName(i) + "  ";
                 }
-
                 while (dr.Read())
                 {
                     for (int i = 0; i < dr.FieldCount; i++)
@@ -640,7 +634,7 @@ namespace FinanceHero
 
 
 
-        /* Statistical */
+        /*** Statistical ***/
         private void load_chart1()
         {
             string cn = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
@@ -649,7 +643,6 @@ namespace FinanceHero
             SqlConnection db = new SqlConnection(cn);           //建立連接物件    
             SqlCommand cmd = new SqlCommand
                 ("SELECT class, SUM(money) FROM 記帳 WHERE datepart(MM, date) = datepart(MM, getdate()) GROUP BY class", db);
-
             try
             {
                 db.Open();                                      //使用Open方法開啟和資料庫的連接
@@ -672,9 +665,8 @@ namespace FinanceHero
                         else
                             money_value = int.Parse(dr[i].ToString());
                     }
-                    chart1.Series["Series1"].Points.AddXY(class_name, money_value);
+                    chart1.Series["Series1"].Points.AddXY(class_name, money_value);     //加入資料點
                 }
-
                 db.Close();
             }
             catch (Exception ex)
@@ -713,9 +705,8 @@ namespace FinanceHero
                         else
                             money_value = int.Parse(dr[i].ToString());
                     }
-                    chart2.Series["Series1"].Points.AddXY(date_str, money_value);
+                    chart2.Series["Series1"].Points.AddXY(date_str, money_value);       //加入資料點
                 }
-
                 db.Close();
             }
             catch (Exception ex)
