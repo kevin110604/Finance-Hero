@@ -297,7 +297,7 @@ namespace FinanceHero
                         else if (i == 3)
                         {
                             desStr = dr[i].ToString();
-                            L1[index].Text += "  " + desStr;
+                            L1[index].Text += "    " + desStr;
                         }
                         else if (i == 4)
                         {
@@ -501,7 +501,7 @@ namespace FinanceHero
             }
             else
             {
-                MessageBox.Show("金幣不足ㄛ");
+                MessageBox.Show("母湯ㄛ金幣不足");
             }
         }
 
@@ -581,7 +581,7 @@ namespace FinanceHero
             sp.SoundLocation = @"..\..\Resources\shoot2.wav";
             sp.Play();
 
-            AlienHP -= 10 * SpaceHATK;                            //怪物扣血
+            AlienHP -= SpaceHATK;                               //怪物扣血
             HPlabel.Text = "" + AlienHP;
             if (AlienHP <= 0)                                   //如果血扣完了
             {

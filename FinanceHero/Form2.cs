@@ -30,6 +30,7 @@ namespace FinanceHero
                MoneytextBox.Text + "," +
                account_key + ")");
 
+            label1.Text = "OK!";
             AddForm_Load(sender, e);
         }
 
@@ -48,8 +49,6 @@ namespace FinanceHero
             DataSet ds = new DataSet();
             //將da物件所取得的資料填入ds物件
             da.Fill(ds);
-            //dataGridView呈現的資料來源為ds內的第一個DataTable資料表(即Tables[0])
-            dataGridView1.DataSource = ds.Tables[0];
         }
 
         void Edit(string sqlstr)
