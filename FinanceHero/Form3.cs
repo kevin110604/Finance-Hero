@@ -38,15 +38,19 @@ namespace FinanceHero
             virtualkey = Home.virtualkey[index];
 
             string cn = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
-                "AttachDbFilename=|DataDirectory|account.mdf;" +
-                "Integrated Security=True";                     //設為True 指定使用Windows 帳號認證連接資料庫
+                         "AttachDbFilename=|DataDirectory|account.mdf;" +
+                         "Integrated Security=True";            //設為True 指定使用Windows 帳號認證連接資料庫
+
+            string sql_cmd = "UPDATE 記帳 " + 
+                             "SET    date = " + "N" + "'" + dateTimePicker1.Text + "'," +
+                                    "class = " + "N" + "'" + ClasscomboBox.Text.Replace("'", "''") + "'," +
+                                    "description = " + "N" + "'" + DescripttextBox.Text.Replace("'", "''") + "'," +
+                                    "money = " + MoneytextBox.Text +
+                             "WHERE  virtualkey = " + virtualkey;
+
             SqlConnection db = new SqlConnection(cn);           //建立連接物件    
-            SqlCommand cmd = new SqlCommand
-                ("UPDATE 記帳 SET date = " + "N" + "'" + dateTimePicker1.Text + "'," +
-                 "class = " + "N" + "'" + ClasscomboBox.Text.Replace("'", "''") + "'," +
-                 "description = " + "N" + "'" + DescripttextBox.Text.Replace("'", "''") + "'," +
-                 "money = " + MoneytextBox.Text +
-                 "WHERE virtualkey = " + virtualkey, db);
+            SqlCommand cmd = new SqlCommand(sql_cmd, db);
+
             try
             {
                 db.Open();                                      //使用Open方法開啟和資料庫的連接
@@ -65,11 +69,14 @@ namespace FinanceHero
             virtualkey = Home.virtualkey[index];
 
             string cn = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
-                "AttachDbFilename=|DataDirectory|account.mdf;" +
-                "Integrated Security=True";                     //設為True 指定使用Windows 帳號認證連接資料庫
+                         "AttachDbFilename=|DataDirectory|account.mdf;" +
+                         "Integrated Security=True";            //設為True 指定使用Windows 帳號認證連接資料庫
+
+            string sql_cmd = "SELECT * FROM 記帳 WHERE virtualkey = " + virtualkey;
+
             SqlConnection db = new SqlConnection(cn);           //建立連接物件    
-            SqlCommand cmd = new SqlCommand
-                ("SELECT * FROM 記帳 WHERE virtualkey = " + virtualkey, db);
+            SqlCommand cmd = new SqlCommand(sql_cmd, db);
+
             try
             {
                 db.Open();                                      //使用Open方法開啟和資料庫的連接

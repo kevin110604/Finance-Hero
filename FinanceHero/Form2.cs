@@ -35,12 +35,13 @@ namespace FinanceHero
             get_account_key();                                  //取得該前最後一筆記帳的key
             account_key++;
 
-            Edit("INSERT INTO 記帳(date,class,description,money,virtualkey) VALUES(" +
-               "N" + "'" + dateTimePicker1.Text + "'," +
-               "N" + "'" + ClasscomboBox.Text.Replace("'", "''") + "'," +
-               "N" + "'" + DescripttextBox.Text.Replace("'", "''") + "'," +
-               MoneytextBox.Text + "," +
-               account_key + ")");
+            string sql_cmd = "INSERT INTO 記帳(date, class, description, money, virtualkey) " + 
+                             "VALUES(" + "N" + "'" + dateTimePicker1.Text + "'," +
+                                         "N" + "'" + ClasscomboBox.Text.Replace("'", "''") + "'," +
+                                         "N" + "'" + DescripttextBox.Text.Replace("'", "''") + "'," +
+                                                     MoneytextBox.Text + "," +
+                                                     account_key + ")";
+            Edit(sql_cmd);
 
             label1.Text = "OK!";
             AddForm_Load(sender, e);
@@ -52,8 +53,8 @@ namespace FinanceHero
             SqlConnection db = new SqlConnection();
             //設定db連接ch15DB資料庫檔案
             db.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
-                "AttachDbFilename=|DataDirectory|account.mdf;" +
-                "Integrated Security=True";
+                                   "AttachDbFilename=|DataDirectory|account.mdf;" +
+                                   "Integrated Security=True";
             //建立DataAdapter物件da
             //da帶入查詢的SQL語法為toolStripTextBox1文字方塊的內容
             SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM 記帳", db);
@@ -69,8 +70,8 @@ namespace FinanceHero
             {
                 SqlConnection db = new SqlConnection();
                 db.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
-                    "AttachDbFilename=|DataDirectory|account.mdf;" +
-                    "Integrated Security=True";
+                                       "AttachDbFilename=|DataDirectory|account.mdf;" +
+                                       "Integrated Security=True";
                 db.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = db;
@@ -88,11 +89,13 @@ namespace FinanceHero
         private void get_account_key()
         {
             string cn = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
-                "AttachDbFilename=|DataDirectory|account.mdf;" +
-                "Integrated Security=True";                     //設為True 指定使用Windows 帳號認證連接資料庫
+                         "AttachDbFilename=|DataDirectory|account.mdf;" +
+                         "Integrated Security=True";            //設為True 指定使用Windows 帳號認證連接資料庫
+
+            string sql_cmd = "SELECT TOP 1 virtualkey FROM 記帳 ORDER BY virtualkey DESC";
+
             SqlConnection db = new SqlConnection(cn);           //建立連接物件    
-            SqlCommand cmd = new SqlCommand
-                ("SELECT TOP 1 virtualkey FROM 記帳 ORDER BY virtualkey DESC", db);
+            SqlCommand cmd = new SqlCommand(sql_cmd, db);
 
             try
             {

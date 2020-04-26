@@ -102,11 +102,13 @@ namespace FinanceHero
         private void load_record()
         {
             string cn = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
-                "AttachDbFilename=|DataDirectory|account.mdf;" +
-                "Integrated Security=True";                     //設為True 指定使用Windows 帳號認證連接資料庫
+                         "AttachDbFilename=|DataDirectory|account.mdf;" +
+                         "Integrated Security=True";            //設為True 指定使用Windows 帳號認證連接資料庫
+
+            string sql_cmd = "SELECT * FROM 遊戲紀錄";
+
             SqlConnection db = new SqlConnection(cn);           //建立連接物件    
-            SqlCommand cmd = new SqlCommand
-                ("SELECT * FROM 遊戲紀錄", db);
+            SqlCommand cmd = new SqlCommand(sql_cmd, db);
 
             try
             {
@@ -160,16 +162,21 @@ namespace FinanceHero
         private void save_game_records()
         {
             string cn = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
-                "AttachDbFilename=|DataDirectory|account.mdf;" +
-                "Integrated Security=True";                     //設為True 指定使用Windows 帳號認證連接資料庫
+                         "AttachDbFilename=|DataDirectory|account.mdf;" +
+                         "Integrated Security=True";            //設為True 指定使用Windows 帳號認證連接資料庫
+
+            string sql_cmd = "UPDATE 遊戲紀錄 " + 
+                             "SET    AlienLevel = " + AlienLevel +
+                                  ", AlienHP = " + AlienHP +
+                                  ", SpaceLevel = " + SpaceLevel +
+                                  ", SpaceLATK = " + SpaceLATK +
+                                  ", SpaceHATK = " + SpaceHATK +
+                                  ", Coin = " + Coin + 
+                             "WHERE  virtualkey = 1";
+
             SqlConnection db = new SqlConnection(cn);           //建立連接物件    
-            SqlCommand cmd = new SqlCommand
-                ("UPDATE 遊戲紀錄 SET AlienLevel = " + AlienLevel +
-                ", AlienHP = " + AlienHP +
-                ", SpaceLevel = " + SpaceLevel +
-                ", SpaceLATK = " + SpaceLATK +
-                ", SpaceHATK = " + SpaceHATK +
-                ", Coin = " + Coin + "WHERE virtualkey = 1", db);
+            SqlCommand cmd = new SqlCommand(sql_cmd, db);
+
             try
             {
                 db.Open();                                      //使用Open方法開啟和資料庫的連接
@@ -206,11 +213,15 @@ namespace FinanceHero
         private void load_total_spend()
         {
             string cn = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
-                "AttachDbFilename=|DataDirectory|account.mdf;" +
-                "Integrated Security=True";                     //設為True 指定使用Windows 帳號認證連接資料庫
+                         "AttachDbFilename=|DataDirectory|account.mdf;" +
+                         "Integrated Security=True";            //設為True 指定使用Windows 帳號認證連接資料庫
+
+            string sql_cmd = "SELECT SUM(money) " +
+                             "FROM   記帳 " +
+                             "WHERE  datepart(MM, date) = datepart(MM, getdate())";
+
             SqlConnection db = new SqlConnection(cn);           //建立連接物件    
-            SqlCommand cmd = new SqlCommand
-                ("SELECT SUM(money) FROM 記帳 WHERE datepart(MM, date) = datepart(MM, getdate())", db);
+            SqlCommand cmd = new SqlCommand(sql_cmd, db);
 
             try
             {
@@ -246,11 +257,13 @@ namespace FinanceHero
         private void create_spend_Label()
         {
             string cn = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
-                "AttachDbFilename=|DataDirectory|account.mdf;" +
-                "Integrated Security=True";                     //設為True 指定使用Windows 帳號認證連接資料庫
+                         "AttachDbFilename=|DataDirectory|account.mdf;" +
+                         "Integrated Security=True";            //設為True 指定使用Windows 帳號認證連接資料庫
+
+            string sql_cmd = "SELECT TOP 30 * FROM 記帳 ORDER BY date DESC";
+
             SqlConnection db = new SqlConnection(cn);           //建立連接物件    
-            SqlCommand cmd = new SqlCommand
-                ("SELECT TOP 30 * FROM 記帳 ORDER BY date DESC", db);
+            SqlCommand cmd = new SqlCommand(sql_cmd, db);
 
             try
             {
@@ -387,11 +400,14 @@ namespace FinanceHero
         {
             /* Now Level */
             string cn = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
-                "AttachDbFilename=|DataDirectory|account.mdf;" +
-                "Integrated Security=True";                     //設為True 指定使用Windows 帳號認證連接資料庫
+                         "AttachDbFilename=|DataDirectory|account.mdf;" +
+                         "Integrated Security=True";            //設為True 指定使用Windows 帳號認證連接資料庫
+
+            string sql_cmd = "SELECT * FROM 飛船 WHERE level = " + SpaceLevel;
+
             SqlConnection db = new SqlConnection(cn);           //建立連接物件
-            SqlCommand cmd = new SqlCommand
-                ("SELECT * FROM 飛船 WHERE level = " + SpaceLevel, db);
+            SqlCommand cmd = new SqlCommand(sql_cmd, db);
+
             try
             {
                 db.Open();                                      //使用Open方法開啟和資料庫的連接
@@ -434,8 +450,9 @@ namespace FinanceHero
 
 
             /* Next Level */
-            SqlCommand cmd2 = new SqlCommand
-                ("SELECT * FROM 飛船 WHERE level = " + (SpaceLevel+1), db);
+            string sql_cmd2 = "SELECT * FROM 飛船 WHERE level = " + (SpaceLevel + 1);
+            SqlCommand cmd2 = new SqlCommand(sql_cmd2, db);
+
             try
             {
                 db.Open();                                      //使用Open方法開啟和資料庫的連接
@@ -511,11 +528,14 @@ namespace FinanceHero
         {
             string spacefile_name = "";
             string cn2 = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
-                "AttachDbFilename=|DataDirectory|account.mdf;" +
-                "Integrated Security=True";                     //設為True 指定使用Windows 帳號認證連接資料庫
+                          "AttachDbFilename=|DataDirectory|account.mdf;" +
+                          "Integrated Security=True";           //設為True 指定使用Windows 帳號認證連接資料庫
+
+            string sql_cmd = "SELECT * FROM 飛船 WHERE level = " + SpaceLevel;
+
             SqlConnection db2 = new SqlConnection(cn2);         //建立連接物件    
-            SqlCommand cmd2 = new SqlCommand
-                ("SELECT * FROM 飛船 WHERE level = " + SpaceLevel, db2);
+            SqlCommand cmd2 = new SqlCommand(sql_cmd, db2);
+
             try
             {
                 db2.Open();                                     //使用Open方法開啟和資料庫的連接
@@ -600,11 +620,14 @@ namespace FinanceHero
             AlienLevel++;                                       //怪物升級
 
             string cn = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
-                "AttachDbFilename=|DataDirectory|account.mdf;" +
-                "Integrated Security=True";                     //設為True 指定使用Windows 帳號認證連接資料庫
+                         "AttachDbFilename=|DataDirectory|account.mdf;" +
+                         "Integrated Security=True";            //設為True 指定使用Windows 帳號認證連接資料庫
+
+            string sql_cmd = "SELECT hp FROM 怪血量 WHERE level = " + AlienLevel;
+
             SqlConnection db = new SqlConnection(cn);           //建立連接物件    
-            SqlCommand cmd = new SqlCommand
-                ("SELECT hp FROM 怪血量 WHERE level = " + AlienLevel, db);
+            SqlCommand cmd = new SqlCommand(sql_cmd, db);
+
             try
             {
                 db.Open();                                      //使用Open方法開啟和資料庫的連接
@@ -638,11 +661,17 @@ namespace FinanceHero
         private void load_chart1()
         {
             string cn = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
-                "AttachDbFilename=|DataDirectory|account.mdf;" +
-                "Integrated Security=True";                     //設為True 指定使用Windows 帳號認證連接資料庫
+                         "AttachDbFilename=|DataDirectory|account.mdf;" +
+                         "Integrated Security=True";            //設為True 指定使用Windows 帳號認證連接資料庫
+
+            string sql_cmd = "SELECT   class, SUM(money) " + 
+                             "FROM     記帳 " + 
+                             "WHERE    datepart(MM, date) = datepart(MM, getdate()) " + 
+                             "GROUP BY class";
+
             SqlConnection db = new SqlConnection(cn);           //建立連接物件    
-            SqlCommand cmd = new SqlCommand
-                ("SELECT class, SUM(money) FROM 記帳 WHERE datepart(MM, date) = datepart(MM, getdate()) GROUP BY class", db);
+            SqlCommand cmd = new SqlCommand(sql_cmd, db);
+
             try
             {
                 db.Open();                                      //使用Open方法開啟和資料庫的連接
@@ -678,11 +707,17 @@ namespace FinanceHero
         private void load_chart2()
         {
             string cn = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
-                "AttachDbFilename=|DataDirectory|account.mdf;" +
-                "Integrated Security=True";                     //設為True 指定使用Windows 帳號認證連接資料庫
+                         "AttachDbFilename=|DataDirectory|account.mdf;" +
+                         "Integrated Security=True";            //設為True 指定使用Windows 帳號認證連接資料庫
+
+            string sql_cmd = "SELECT   datepart(dd, date), SUM(money) " + 
+                             "FROM     記帳 " + 
+                             "WHERE    datepart(MM, date) = datepart(MM, getdate()) " + 
+                             "GROUP BY datepart(dd, date)";
+
             SqlConnection db = new SqlConnection(cn);           //建立連接物件    
-            SqlCommand cmd = new SqlCommand
-                ("SELECT datepart(dd, date), SUM(money) FROM 記帳 WHERE datepart(MM, date) = datepart(MM, getdate()) GROUP BY datepart(dd, date)", db);
+            SqlCommand cmd = new SqlCommand(sql_cmd, db);
+
             try
             {
                 db.Open();                                      //使用Open方法開啟和資料庫的連接
